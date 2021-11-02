@@ -20,26 +20,26 @@ function RecipeListing() {
     return <RecipeCard key={index} data={breakfast} />;
   });
 
-  // const lunchRender = (lunch.hits || []).map((lunch, index) => {
-  //   return <RecipeCard key={index} data={lunch} />;
-  // });
-  // const dinnerRender = (dinner.hits || []).map((dinner, index) => {
-  //   return <RecipeCard key={index} data={dinner} />;
-  // });
-  // const snackRender = (snack.hits || []).map((snack, index) => {
-  //   return <RecipeCard key={index} data={snack} />;
-  // });
-  // const teatimeRender = (teatime.hits || []).map((teatime, index) => {
-  //   return <RecipeCard key={index} data={teatime} />;
-  // });
+  const lunchRender = (lunch.hits || []).map((lunch, index) => {
+    return <RecipeCard key={index} data={lunch} />;
+  });
+  const dinnerRender = (dinner.hits || []).map((dinner, index) => {
+    return <RecipeCard key={index} data={dinner} />;
+  });
+  const snackRender = (snack.hits || []).map((snack, index) => {
+    return <RecipeCard key={index} data={snack} />;
+  });
+  const teatimeRender = (teatime.hits || []).map((teatime, index) => {
+    return <RecipeCard key={index} data={teatime} />;
+  });
 
   return (
     <div>
       {breakfastRender}
-      {/* {lunchRender} */}
-      {/* {dinnerRender} */}
-      {/* {snackRender}  */}
-      {/* {teatimeRender}  */}
+      {lunchRender}
+      {dinnerRender}
+      {snackRender}
+      {teatimeRender}
     </div>
   );
 }

@@ -78,10 +78,10 @@ const recipeSlice = createSlice({
 export const { removeRecipeDetail } = recipeSlice.actions;
 
 export const getBreakfast = (state) => state.recipes.breakfast;
-export const getLunch = (state) => state.recipes.Lunch;
-export const getDinner = (state) => state.recipes.Dinner;
-export const getSnack = (state) => state.recipes.Snack;
-export const getTeatime = (state) => state.recipes.Teatime;
+export const getLunch = (state) => state.recipes.lunch;
+export const getDinner = (state) => state.recipes.dinner;
+export const getSnack = (state) => state.recipes.snack;
+export const getTeatime = (state) => state.recipes.teatime;
 export const selectRecipeDetail = (state) => state.recipes.selectRecipeDetail;
 
 export default recipeSlice.reducer;

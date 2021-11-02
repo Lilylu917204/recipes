@@ -6,6 +6,8 @@ function RecipeCard({ data }) {
   return (
     <div>
       <Link to={`/recipe/${recipeUri}`}></Link>
+      {/* test */}
+      {data.recipe.label}
     </div>
   );
 }
