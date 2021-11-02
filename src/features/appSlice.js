@@ -10,10 +10,10 @@ const fetchMealType = (type) =>
     return data;
   });
 
-export const fetchRecipeDetail = (recipeUri) =>
+export const fetchRecipeDetail = (recipeUri, mealType) =>
   createAsyncThunk("recipes/fetchRecipeDetail", async () => {
     const { data } = await recipeApi.get(
-      `/${recipeUri}?app_id=${ID}&app_key=${KEY}&type=public`
+      `/${recipeUri}?&app_id=${ID}&app_key=${KEY}&type=public&mealType=${mealType}`
     );
     return data;
   });

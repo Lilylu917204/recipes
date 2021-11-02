@@ -13,8 +13,11 @@ function App() {
         <div className="container">
           <Header />
           <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/recipe/:recipeURL" component={RecipeDetail} />
+            <Route exact path="/" component={Home} />
+            <Route
+              path="/recipe/:mealType/:recipeUri"
+              component={RecipeDetail}
+            />
             <Route component={PageNotFound} />
           </Switch>
         </div>
