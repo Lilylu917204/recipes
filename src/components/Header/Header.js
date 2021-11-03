@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fetchData, removeRecipe } from "../../features/appSlice";
+import { fetchRecipe, removeRecipe } from "../../features/appSlice";
 import { useDispatch } from "react-redux";
 
 function Header() {
@@ -8,7 +8,7 @@ function Header() {
   const submitHandler = (e) => {
     e.preventDefault();
     if (term === "") return alert("Please enter recipe");
-    dispatch(fetchData(term));
+    dispatch(fetchRecipe(term));
     setTerm("");
   };
 

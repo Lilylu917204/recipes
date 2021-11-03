@@ -1,36 +1,26 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import recipeApi from "../common/api/recipeApi";
 
-export const fetchData = createAsyncThunk("recipes/fetchData", async (term) => {
-  const { data } = await recipeApi.get(`?q=${term}`);
-  return data;
-});
+// a better way to fetch data
 
-export const fetchMealType = createAsyncThunk(
+export const fetchRecipe = createAsyncThunk(
   "recipes/fetchMealType",
-  async (parameter = ["Breakfast", "chicken"]) => {
-    console.log(parameter);
-    const { data } = await recipeApi.get(
-      `?mealType=${parameter[0]}&q=${parameter[1]}`
-    );
+  async (recipe) => {
+    const { data } = await recipeApi.get("", recipe);
     return data;
   }
 );
 
 // export const fetchMealType = createAsyncThunk(
 //   "recipes/fetchMealType",
-//   async (test) => {
-//     const { data } = await recipeApi.get("", test);
+//   async (parameter = ["Breakfast", "chicken"]) => {
+//     console.log(parameter);
+//     const { data } = await recipeApi.get(
+//       `?mealType=${parameter[0]}&q=${parameter[1]}`
+//     );
 //     return data;
 //   }
 // );
-
-// const fetchMealType = (type) =>
-//   createAsyncThunk(`recipes/fetch${type}`, async () => {
-//     const { data } = await recipeApi.get(`?mealType=${type}`);
-//     console.log(data);
-//     return data;
-//   });
 
 export const fetchRecipeDetail = createAsyncThunk(
   "recipes/fetchRecipeDetail",
@@ -53,8 +43,7 @@ const initialState = {
   snack: {},
   teatime: {},
   selectRecipeDetail: {},
-  data: {},
-  type: {},
+  recipe: {},
 };
 
 const recipeSlice = createSlice({
@@ -63,9 +52,6 @@ const recipeSlice = createSlice({
   reducers: {
     removeRecipeDetail: (state) => {
       state.selectRecipeDetail = {};
-    },
-    removeRecipe: (state) => {
-      state.type = {};
     },
   },
   extraReducers: {
@@ -99,17 +85,12 @@ const recipeSlice = createSlice({
       console.log("Detail Fetch Successfull");
       return { ...state, selectRecipeDetail: payload };
     },
-    [fetchMealType.pending]: (state) => {
+    [fetchRecipe.pending]: () => {
       console.log("Pending");
     },
-
-    [fetchData.fulfilled]: (state, { payload }) => {
+    [fetchRecipe.fulfilled]: (state, { payload }) => {
       console.log("Fetch Successfull");
-      return { ...state, data: payload };
-    },
-    [fetchMealType.fulfilled]: (state, { payload }) => {
-      console.log("Fetch Successfull");
-      return { ...state, type: payload };
+      return { ...state, recipe: payload };
     },
   },
 });
@@ -123,7 +104,6 @@ export const getSnack = (state) => state.recipes.snack;
 export const getTeatime = (state) => state.recipes.teatime;
 export const selectRecipeDetail = (state) => state.recipes.selectRecipeDetail;
 
-export const getData = (state) => state.recipes.data;
-export const getMealType = (state) => state.recipes.type;
+export const getRecipe = (state) => state.recipes.recipe;
 
 export default recipeSlice.reducer;

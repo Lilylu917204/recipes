@@ -5,8 +5,7 @@ import {
   getLunch,
   getSnack,
   getTeatime,
-  getData,
-  getMealType,
+  getRecipe,
 } from "../../features/appSlice";
 
 import { useSelector } from "react-redux";
@@ -18,15 +17,12 @@ function RecipeListing() {
   const dinner = useSelector(getDinner);
   const snack = useSelector(getSnack);
   const teatime = useSelector(getTeatime);
-  const data = useSelector(getData);
-  const mealType = useSelector(getMealType);
+  const recipe = useSelector(getRecipe);
 
-  const dataRender = (data.hits || []).map((data, index) => {
-    return <RecipeCard key={index} data={data} />;
-  });
+  console.log(recipe);
 
-  const typeRender = (mealType.hits || []).map((meal, index) => {
-    return <RecipeCard key={index} data={meal} />;
+  const recipeRender = (recipe.hits || []).map((recipe, index) => {
+    return <RecipeCard key={index} data={recipe} />;
   });
 
   // const breakfastRender = (breakfast.hits || []).map((breakfast, index) => {
@@ -48,7 +44,7 @@ function RecipeListing() {
 
   return (
     <div>
-      {typeRender}
+      {recipeRender}
       {/* {breakfastRender} */}
       {/* {lunchRender}
       {dinnerRender}

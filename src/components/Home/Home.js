@@ -6,12 +6,12 @@ import {
   fetchLunch,
   fetchSnack,
   fetchTeatime,
-  fetchMealType,
+  fetchRecipe,
 } from "../../features/appSlice";
 import RecipeListing from "../RecipeListing/RecipeListing";
 
 function Home() {
-  const test = {
+  const data = {
     params: {
       mealType: "Breakfast",
       q: " ",
@@ -21,7 +21,7 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMealType());
+    dispatch(fetchRecipe(data));
     // dispatch(fetchBreakfast());
     // dispatch(fetchDinner());
     // dispatch(fetchLunch());
