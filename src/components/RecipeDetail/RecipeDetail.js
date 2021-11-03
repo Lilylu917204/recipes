@@ -18,7 +18,7 @@ function RecipeDetail() {
     return () => {
       dispatch(removeRecipeDetail());
     };
-  }, [dispatch, recipeUri]);
+  }, [dispatch, recipeUri, mealType]);
   return <div>RecipeDetail</div>;
 }
 
