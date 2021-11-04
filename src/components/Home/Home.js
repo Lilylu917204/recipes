@@ -1,20 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {
-  fetchBreakfast,
-  fetchDinner,
-  fetchLunch,
-  fetchSnack,
-  fetchTeatime,
-  fetchRecipe,
-} from "../../features/appSlice";
+import { fetchRecipe } from "../../features/appSlice";
 import RecipeListing from "../RecipeListing/RecipeListing";
 
 function Home() {
   const data = {
     params: {
       mealType: "Breakfast",
-      q: " ",
+      q: "",
     },
   };
 
@@ -22,12 +15,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(fetchRecipe(data));
-    // dispatch(fetchBreakfast());
-    // dispatch(fetchDinner());
-    // dispatch(fetchLunch());
-    // dispatch(fetchSnack());
-    // dispatch(fetchTeatime());
-  }, [dispatch, data]);
+  }, [dispatch]);
 
   return (
     <div>

@@ -5,10 +5,15 @@ import { useDispatch } from "react-redux";
 function Header() {
   const dispatch = useDispatch();
   const [term, setTerm] = useState("");
+  const data = {
+    params: {
+      q: term,
+    },
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     if (term === "") return alert("Please enter recipe");
-    dispatch(fetchRecipe(term));
+    dispatch(fetchRecipe(data));
     setTerm("");
   };
 

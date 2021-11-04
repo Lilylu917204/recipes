@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import recipeApi from "../common/api/recipeApi";
+import axios from "axios";
 
 // a better way to fetch data
 
@@ -10,6 +11,25 @@ export const fetchRecipe = createAsyncThunk(
     return data;
   }
 );
+
+// fetch multiple data using axios.all
+
+// export const fetchRecipe = createAsyncThunk("recipes/fetchRecipe", async () => {
+//   const requestOne = recipeApi.get("?mealType=Breakfast");
+//   const requestTwo = recipeApi.get("?mealType=Lunch");
+
+//   axios.all([requestOne, requestTwo]).then(
+//     axios.spread((...responses) => {
+//       const responseOne = responses[0];
+//       const responseTwo = responses[1];
+//       // use/access the results
+
+//       console.log(responseOne.data);
+//       console.log(responseTwo.data);
+//
+//     })
+//   );
+// });
 
 // export const fetchRecipe = createAsyncThunk(
 //   "recipes/fetchRecipe",
@@ -30,18 +50,7 @@ export const fetchRecipeDetail = createAsyncThunk(
   }
 );
 
-// export const fetchBreakfast = fetchMealType("Breakfast");
-// export const fetchLunch = fetchMealType("Lunch");
-// export const fetchDinner = fetchMealType("Dinner");
-// export const fetchSnack = fetchMealType("Snack");
-// export const fetchTeatime = fetchMealType("Teatime");
-
 const initialState = {
-  breakfast: {},
-  lunch: {},
-  dinner: {},
-  snack: {},
-  teatime: {},
   selectRecipeDetail: {},
   recipe: {},
 };
@@ -55,33 +64,6 @@ const recipeSlice = createSlice({
     },
   },
   extraReducers: {
-    // [fetchBreakfast.pending]: () => {
-    //   console.log("Pending");
-    // },
-    // [fetchBreakfast.fulfilled]: (state, { payload }) => {
-    //   console.log("Breakfast Fetch Successfull");
-    //   return { ...state, breakfast: payload };
-    // },
-    // [fetchBreakfast.rejected]: () => {
-    //   console.log("Rejected");
-    // },
-    // [fetchLunch.fulfilled]: (state, { payload }) => {
-    //   console.log("Lunch Fetch Successfull");
-    //   return { ...state, lunch: payload };
-    // },
-    // [fetchDinner.fulfilled]: (state, { payload }) => {
-    //   console.log("Dinner Fetch Successfull");
-    //   return { ...state, dinner: payload };
-    // },
-    // [fetchSnack.fulfilled]: (state, { payload }) => {
-    //   console.log("Snack Fetch Successfull");
-    //   return { ...state, snack: payload };
-    // },
-    // [fetchTeatime.fulfilled]: (state, { payload }) => {
-    //   console.log("Teatime Fetch Successfull");
-    //   return { ...state, teatime: payload };
-    // },
-
     [fetchRecipe.pending]: () => {
       console.log("Pending");
     },
@@ -101,11 +83,6 @@ const recipeSlice = createSlice({
 
 export const { removeRecipeDetail, removeRecipe } = recipeSlice.actions;
 
-export const getBreakfast = (state) => state.recipes.breakfast;
-export const getLunch = (state) => state.recipes.lunch;
-export const getDinner = (state) => state.recipes.dinner;
-export const getSnack = (state) => state.recipes.snack;
-export const getTeatime = (state) => state.recipes.teatime;
 export const selectRecipeDetail = (state) => state.recipes.selectRecipeDetail;
 
 export const getRecipe = (state) => state.recipes.recipe;
