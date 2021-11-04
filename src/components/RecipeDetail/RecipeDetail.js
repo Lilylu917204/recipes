@@ -9,16 +9,22 @@ import { useParams } from "react-router-dom";
 
 function RecipeDetail() {
   let { recipeUri, mealType } = useParams();
+  const recipeDetail = {
+    params: {
+      recipeUri,
+      mealType,
+    },
+  };
   const selectRecipe = useSelector(selectRecipeDetail);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchRecipeDetail(recipeUri, mealType));
+    dispatch(fetchRecipeDetail(recipeDetail));
 
     return () => {
       dispatch(removeRecipeDetail());
     };
-  }, [dispatch, recipeUri, mealType]);
+  }, [dispatch, recipeUri]);
   return <div>RecipeDetail</div>;
 }
 

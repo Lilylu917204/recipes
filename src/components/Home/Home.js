@@ -27,7 +27,7 @@ function Home() {
     // dispatch(fetchLunch());
     // dispatch(fetchSnack());
     // dispatch(fetchTeatime());
-  }, [dispatch]);
+  }, [dispatch, data]);
 
   return (
     <div>

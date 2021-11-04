@@ -11,8 +11,8 @@ export const fetchRecipe = createAsyncThunk(
   }
 );
 
-// export const fetchMealType = createAsyncThunk(
-//   "recipes/fetchMealType",
+// export const fetchRecipe = createAsyncThunk(
+//   "recipes/fetchRecipe",
 //   async (parameter = ["Breakfast", "chicken"]) => {
 //     console.log(parameter);
 //     const { data } = await recipeApi.get(
@@ -24,8 +24,8 @@ export const fetchRecipe = createAsyncThunk(
 
 export const fetchRecipeDetail = createAsyncThunk(
   "recipes/fetchRecipeDetail",
-  async (recipeUri, mealType) => {
-    const { data } = await recipeApi.get(`/${recipeUri}?mealType=${mealType}`);
+  async (recipeDetail) => {
+    const { data } = await recipeApi.get("", recipeDetail);
     return data;
   }
 );
@@ -81,16 +81,20 @@ const recipeSlice = createSlice({
     //   console.log("Teatime Fetch Successfull");
     //   return { ...state, teatime: payload };
     // },
-    [fetchRecipeDetail.fulfilled]: (state, { payload }) => {
-      console.log("Detail Fetch Successfull");
-      return { ...state, selectRecipeDetail: payload };
-    },
+
     [fetchRecipe.pending]: () => {
       console.log("Pending");
     },
-    [fetchRecipe.fulfilled]: (state, { payload }) => {
+    [fetchRecipe.rejected]: () => {
+      console.log("Rejected");
+    },
+    [fetchRecipe.fulfilled]: (state, action) => {
       console.log("Fetch Successfull");
-      return { ...state, recipe: payload };
+      return { ...state, recipe: action.payload };
+    },
+    [fetchRecipeDetail.fulfilled]: (state, action) => {
+      console.log("Detail Fetch Successfull");
+      return { ...state, selectRecipeDetail: action.paylaod };
     },
   },
 });
