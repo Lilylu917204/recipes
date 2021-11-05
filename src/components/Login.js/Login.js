@@ -25,11 +25,13 @@ function Login() {
     });
   }, [dispatch]);
 
-  const signInHandler = () => {
+  const signInHandler = (e) => {
+    e.preventDefault();
     auth.signInWithPopup(provider).catch((err) => console.log(err.message));
   };
 
-  const signOutHandler = () => {
+  const signOutHandler = (e) => {
+    e.preventDefault();
     auth
       .signOut()
       .then(() => {
