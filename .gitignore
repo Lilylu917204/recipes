@@ -24,3 +24,7 @@ yarn-error.log*
 
 # Api key
 src/common/api/recipeApiKey.js
+
+# firebaseConfig
+
+src/common/firebase/firebaseConfig.js
