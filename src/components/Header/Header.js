@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fetchRecipe, removeRecipe } from "../../features/appSlice";
+import { fetchRecipe } from "../../features/appSlice";
 import { useDispatch } from "react-redux";
 import Login from "../Login.js/Login";
 

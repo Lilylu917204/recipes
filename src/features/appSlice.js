@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import recipeApi from "../common/api/recipeApi";
-import axios from "axios";
 
 // a better way to fetch data
 
