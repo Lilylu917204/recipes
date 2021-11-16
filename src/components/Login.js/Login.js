@@ -16,7 +16,6 @@ function Login() {
             uid: authUser.uid,
             email: authUser.email,
             displayName: authUser.displayName,
-            photo: authUser.photoURL,
           })
         );
       } else {
@@ -46,7 +45,6 @@ function Login() {
         <div>
           <span>Welcome,{user.displayName}</span>
           <span>{user.email}</span>
-          <img src={user.photo} alt="user-image" />
           <button onClick={signOutHandler}>Sign Out</button>
         </div>
       ) : (

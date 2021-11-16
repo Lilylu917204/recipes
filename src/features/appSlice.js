@@ -59,6 +59,9 @@ const recipeSlice = createSlice({
   name: "recipes",
   initialState,
   reducers: {
+    removeRecipe: (state) => {
+      state.recipe = {};
+    },
     removeRecipeDetail: (state) => {
       state.selectRecipeDetail = {};
     },
