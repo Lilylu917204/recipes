@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { fetchRecipe } from "../../features/appSlice";
-import { useDispatch } from "react-redux";
-import Login from "../Login.js/Login";
+import { useSelector, useDispatch } from "react-redux";
 
 function Header() {
   const dispatch = useDispatch();
@@ -30,7 +29,6 @@ function Header() {
         />
         <button type="submit">Click</button>
       </form>
-      <Login />
     </div>
   );
 }
