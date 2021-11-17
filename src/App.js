@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="app">
       <Router basename="/recipe">
-        <Header />
+        {window.location.pathname !== "/recipe/logIn" ? <Header /> : null}
         <div className="container">
           <Switch>
             <Route exact path="/" component={Home} />

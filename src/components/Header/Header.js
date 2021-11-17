@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchRecipe } from "../../features/appSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   const dispatch = useDispatch();
@@ -29,6 +30,11 @@ function Header() {
         />
         <button type="submit">Click</button>
       </form>
+      <div>
+        <NavLink to="/logIn">
+          <h4>Log In</h4>
+        </NavLink>
+      </div>
     </div>
   );
 }

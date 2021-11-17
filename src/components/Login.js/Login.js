@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import { selectUserName, login, logout } from "../../features/userSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { auth, provider } from "../../common/firebase/firebase";
+import { useLocation } from "react-router-dom";
 
 function Login() {
+  console.log(window.location.pathname);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [profilePic, setProfilePic] = useState("");
 
   const dispatch = useDispatch();
-  const user = useSelector(selectUserName);
 
   const emailSignInHandler = (e) => {
     e.preventDefault();
@@ -118,17 +119,8 @@ function Login() {
         Not a member?
         <span onClick={registerHandler}>Register Now</span>
       </p>
+
       <button onClick={googleSignInHandler}>Sign In with Google</button>
-      {user ? (
-        <div>
-          <span>Welcome,{user.displayName}</span>
-          <span>{user.email}</span>
-          <img src={user.photoURL} alt="user" />
-          <button onClick={signOutHandler}>Sign Out</button>
-        </div>
-      ) : (
-        <button onClick={googleSignInHandler}>Sign In with Google</button>
-      )}
     </div>
   );
 }
