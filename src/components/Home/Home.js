@@ -1,55 +1,51 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { fetchRecipe, removeRecipe } from "../../features/appSlice";
-import RecipeListing from "../RecipeListing/RecipeListing";
+import { Link } from "react-router-dom";
+
+import types from "../../common/data";
 
 function Home() {
   const dispatch = useDispatch();
-  const [mealType, setMealType] = useState("Breakfast");
+  const [meals, setMeals] = useState("");
   const [active, setActive] = useState(false);
-  const types = ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"];
 
   const data = useMemo(
     () => ({
       params: {
-        mealType: mealType,
+        mealType: meals,
         q: "",
       },
     }),
-    [mealType]
+    [meals]
   );
 
   useEffect(() => {
     dispatch(fetchRecipe(data));
-    console.log(mealType);
     return () => {
       dispatch(removeRecipe());
     };
-  }, [mealType, active, data, dispatch]);
+  }, [meals, active, data, dispatch]);
 
   return (
     <div>
-      {active ? (
-        <RecipeListing />
-      ) : (
-        <>
-          {types.map((type) => {
-            return (
-              <div>
-                <span
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setMealType(type);
-                    setActive(true);
-                  }}
-                >
-                  <h2>{type}</h2>
-                </span>
-              </div>
-            );
-          })}
-        </>
-      )}
+      {types.map((type, key) => {
+        return (
+          <div key={key}>
+            <span
+              onClick={(e) => {
+                e.preventDefault();
+                setMeals(type.title);
+                setActive(true);
+              }}
+            >
+              <Link to={`/${type.mealType}`}>
+                <h2>{type.title}</h2>
+              </Link>
+            </span>
+          </div>
+        );
+      })}
     </div>
   );
 }

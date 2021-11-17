@@ -5,19 +5,18 @@ import RecipeDetail from "./components/RecipeDetail/RecipeDetail";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import MealType from "./components/MealType/MealType";
 
 function App() {
   return (
     <div className="app">
-      <Router>
+      <Router basename="/recipe">
+        <Header />
         <div className="container">
-          <Header />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route
-              path="/recipe/:mealType/:recipeUri"
-              component={RecipeDetail}
-            />
+            <Route path="/:mealType/:recipeId" component={RecipeDetail} />
+            <Route path="/:mealType" component={MealType} />
             <Route component={PageNotFound} />
           </Switch>
         </div>

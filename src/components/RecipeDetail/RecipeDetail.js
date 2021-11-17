@@ -8,10 +8,10 @@ import {
 import { useParams } from "react-router-dom";
 
 function RecipeDetail() {
-  let { recipeUri, mealType } = useParams();
+  let { recipeId, mealType } = useParams();
   const recipeDetail = {
     params: {
-      recipeUri,
+      recipeId,
       mealType,
     },
   };
@@ -24,7 +24,7 @@ function RecipeDetail() {
     return () => {
       dispatch(removeRecipeDetail());
     };
-  }, [dispatch, recipeUri]);
+  }, [dispatch, recipeId]);
   return <div>RecipeDetail</div>;
 }
 
