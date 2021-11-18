@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { selectUserName, login, logout } from "../../features/userSlice";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { login } from "../../features/userSlice";
+import { useDispatch } from "react-redux";
 import { auth, provider } from "../../common/firebase/firebase";
-import { useLocation } from "react-router-dom";
 
 function Login() {
-  console.log(window.location.pathname);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,36 +49,9 @@ function Login() {
     });
   };
 
-  useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        dispatch(
-          login({
-            uid: authUser.uid,
-            email: authUser.email,
-            displayName: authUser.displayName,
-            photoURL: authUser.photoURL,
-          })
-        );
-      } else {
-        dispatch(logout());
-      }
-    });
-  }, [dispatch]);
-
   const googleSignInHandler = (e) => {
     e.preventDefault();
     auth.signInWithPopup(provider).catch((err) => alert(err));
-  };
-
-  const signOutHandler = (e) => {
-    e.preventDefault();
-    auth
-      .signOut()
-      .then(() => {
-        dispatch(logout());
-      })
-      .catch((err) => alert(err));
   };
 
   return (
