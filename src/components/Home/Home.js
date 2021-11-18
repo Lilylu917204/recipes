@@ -2,8 +2,8 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { fetchRecipe, removeRecipe } from "../../features/appSlice";
 import { Link } from "react-router-dom";
-
 import types from "../../common/data";
+import Banner from "../Banner/Banner";
 
 function Home() {
   const dispatch = useDispatch();
@@ -29,6 +29,7 @@ function Home() {
 
   return (
     <div>
+      <Banner />
       {types.map((type, key) => {
         return (
           <div key={key}>
