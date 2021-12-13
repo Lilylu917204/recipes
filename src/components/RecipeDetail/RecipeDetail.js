@@ -9,9 +9,11 @@ import { useParams } from "react-router-dom";
 
 function RecipeDetail() {
   let { recipeId, mealType } = useParams();
+  // const link = `http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}`;
+
   const recipeDetail = {
     params: {
-      recipeId,
+      r: `http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}`,
       mealType,
     },
   };

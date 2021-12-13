@@ -6,7 +6,7 @@ import recipeApi from "../common/api/recipeApi";
 export const fetchRecipe = createAsyncThunk(
   "recipes/fetchMealType",
   async (recipe) => {
-    const { data } = await recipeApi.get("", recipe);
+    const { data } = await recipeApi.get("/search", recipe);
     return data;
   }
 );
@@ -44,7 +44,7 @@ export const fetchRecipe = createAsyncThunk(
 export const fetchRecipeDetail = createAsyncThunk(
   "recipes/fetchRecipeDetail",
   async (recipeDetail) => {
-    const { data } = await recipeApi.get("", recipeDetail);
+    const { data } = await recipeApi.get("/search", recipeDetail);
     return data;
   }
 );

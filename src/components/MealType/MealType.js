@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchRecipe, removeRecipe } from "../../features/appSlice";
 import RecipeListing from "../RecipeListing/RecipeListing";
 import { useParams } from "react-router-dom";
 
 function Home() {
+  const [pageNumber, setPageNumber] = useState(0);
+
   let { mealType } = useParams();
   const mealTypeDetail = {
     params: {
+      q: "",
       mealType,
+      from: pageNumber,
+      to: pageNumber + 10,
     },
   };
 
@@ -20,11 +25,11 @@ function Home() {
     return () => {
       dispatch(removeRecipe());
     };
-  }, [dispatch, mealTypeDetail]);
+  }, [dispatch, mealType, pageNumber]);
 
   return (
     <div>
-      <RecipeListing />
+      <RecipeListing pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
 }
