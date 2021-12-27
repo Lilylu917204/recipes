@@ -7,7 +7,7 @@ import "./RecipeListing.scss";
 function RecipeListing({ pageNumber, setPageNumber }) {
   const recipe = useSelector(getRecipe);
 
-  const displayUsers = (recipe.hits || []).map((recipe, index) => {
+  const displayRecipes = (recipe.hits || []).map((recipe, index) => {
     return <RecipeCard key={index} data={recipe} />;
   });
 
@@ -23,7 +23,7 @@ function RecipeListing({ pageNumber, setPageNumber }) {
 
   return (
     <div>
-      {displayUsers}
+      {displayRecipes}
       <button onClick={PrePageRender}>Previous Page</button>
       <button onClick={nextPageRender}>Next Page</button>
     </div>

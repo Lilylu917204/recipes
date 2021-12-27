@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import recipeApi from "../common/api/recipeApi";
+import { recipeDetailApi } from "../common/api/recipeApi";
 
 // a better way to fetch data
 
@@ -43,8 +44,11 @@ export const fetchRecipe = createAsyncThunk(
 
 export const fetchRecipeDetail = createAsyncThunk(
   "recipes/fetchRecipeDetail",
-  async (recipeDetail) => {
-    const { data } = await recipeApi.get("/search", recipeDetail);
+  async (recipeId) => {
+    const { data } = await recipeDetailApi.get(
+      `/search?app_id=b4c650bb&app_key=becf87251f5d2ddfc322260756949473&r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}`
+    );
+
     return data;
   }
 );
@@ -76,9 +80,15 @@ const recipeSlice = createSlice({
       console.log("Fetch Successfull");
       return { ...state, recipe: action.payload };
     },
-    [fetchRecipeDetail.fulfilled]: (state, action) => {
-      console.log("Detail Fetch Successfull");
-      return { ...state, selectRecipeDetail: action.paylaod };
+    [fetchRecipeDetail.pending]: () => {
+      console.log("Pending");
+    },
+    [fetchRecipeDetail.rejected]: () => {
+      console.log("Rejected");
+    },
+    [fetchRecipeDetail.fulfilled]: (state, { payload }) => {
+      console.log("Fetched Successful");
+      return { ...state, selectRecipeDetail: payload };
     },
   },
 });

@@ -8,26 +8,43 @@ import {
 import { useParams } from "react-router-dom";
 
 function RecipeDetail() {
-  let { recipeId, mealType } = useParams();
-  // const link = `http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}`;
+  let { recipeId } = useParams();
 
-  const recipeDetail = {
-    params: {
-      r: `http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}`,
-      mealType,
-    },
-  };
+  // recipeId = {
+  //   params: {
+  //     r: `http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}`,
+  //   },
+  // };
   const selectRecipe = useSelector(selectRecipeDetail);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchRecipeDetail(recipeDetail));
+    dispatch(fetchRecipeDetail(recipeId));
 
     return () => {
       dispatch(removeRecipeDetail());
     };
   }, [dispatch, recipeId]);
-  return <div>RecipeDetail</div>;
+
+  console.log(selectRecipe);
+
+  return (
+    <div>
+      {Object.keys(selectRecipe).length === 0
+        ? "loading..."
+        : selectRecipe.map((recipe) => {
+            return (
+              <div key={recipe.label}>
+                <div>label:{recipe.label}</div>
+                <div>calories:{recipe.calories}</div>
+                <img src={recipe.image} alt={recipe.label} />
+                <div>diet labels : {recipe.dietLabels}</div>
+                <div>source : {recipe.url}</div>
+              </div>
+            );
+          })}
+    </div>
+  );
 }
 
 export default RecipeDetail;

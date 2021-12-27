@@ -10,22 +10,22 @@ function Home() {
   const [meals, setMeals] = useState("");
   const [active, setActive] = useState(false);
 
-  const data = useMemo(
-    () => ({
-      params: {
-        mealType: meals,
-        q: "",
-      },
-    }),
-    [meals]
-  );
+  // const data = useMemo(
+  //   () => ({
+  //     params: {
+  //       mealType: meals,
+  //       q: "",
+  //     },
+  //   }),
+  //   [meals]
+  // );
 
-  useEffect(() => {
-    dispatch(fetchRecipe(data));
-    return () => {
-      dispatch(removeRecipe());
-    };
-  }, [meals, active, data, dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchRecipe(data));
+  //   return () => {
+  //     dispatch(removeRecipe());
+  //   };
+  // }, [meals, active, data, dispatch]);
 
   return (
     <div>
@@ -40,7 +40,7 @@ function Home() {
                 setActive(true);
               }}
             >
-              <Link to={`/${type.mealType}`}>
+              <Link to={`/${type.title.toLowerCase()}`}>
                 <h2>{type.title}</h2>
               </Link>
             </span>

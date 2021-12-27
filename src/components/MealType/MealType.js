@@ -4,7 +4,7 @@ import { fetchRecipe, removeRecipe } from "../../features/appSlice";
 import RecipeListing from "../RecipeListing/RecipeListing";
 import { useParams } from "react-router-dom";
 
-function Home() {
+function MealType() {
   const [pageNumber, setPageNumber] = useState(0);
 
   let { mealType } = useParams();
@@ -34,4 +34,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default MealType;
