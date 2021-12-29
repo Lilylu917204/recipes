@@ -8,7 +8,7 @@ function RecipeListing({ pageNumber, setPageNumber }) {
   const recipe = useSelector(getRecipe);
 
   const displayRecipes = (recipe.hits || []).map((recipe, index) => {
-    return <RecipeCard key={index} data={recipe} />;
+    return <RecipeCard key={index} recipe={recipe} />;
   });
 
   const PrePageRender = (e) => {
@@ -23,7 +23,7 @@ function RecipeListing({ pageNumber, setPageNumber }) {
 
   return (
     <div>
-      {displayRecipes}
+      <div className="recipeList">{displayRecipes}</div>
       <button onClick={PrePageRender}>Previous Page</button>
       <button onClick={nextPageRender}>Next Page</button>
     </div>
