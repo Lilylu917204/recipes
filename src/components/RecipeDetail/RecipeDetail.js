@@ -39,12 +39,9 @@ function RecipeDetail() {
                 <div>calories:{recipe.calories}</div>
                 <img src={recipe.image} alt={recipe.label} />
                 <div>diet labels : {recipe.dietLabels}</div>
-                <div>
-                  source :{" "}
-                  <a href={recipe.url} target="_blank">
-                    {recipe.url}
-                  </a>
-                </div>
+                <a href={recipe.url} target="_blank">
+                  <button type="submit">Source</button>
+                </a>
               </div>
             );
           })}
