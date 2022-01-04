@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   favoriteItems: [],
@@ -15,6 +16,9 @@ const favoriteSlice = createSlice({
 
       if (itemIndex < 0) {
         state.favoriteItems.push(action.payload);
+        toast.success("added a recipe to favorite", {
+          position: "bottom-left",
+        });
       }
     },
     removeFavorite: (state, action) => {

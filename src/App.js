@@ -16,6 +16,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { selectUser, login, logout } from "./features/userSlice";
 import { auth } from "./common/firebase/firebase";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 
@@ -43,6 +45,7 @@ function App() {
   return (
     <div className="app">
       <Router basename="/recipe">
+        <ToastContainer />
         <Header />
         {/* {window.location.pathname !== "/recipe/login" && <Header />} */}
         <div className="container">
