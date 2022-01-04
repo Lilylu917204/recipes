@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 const initialState = {
-  favoriteItems: [],
+  favoriteItems: localStorage.getItem("favoriteItems")
+    ? JSON.parse(localStorage.getItem("favoriteItems"))
+    : [],
 };
 
 const favoriteSlice = createSlice({
@@ -20,6 +22,11 @@ const favoriteSlice = createSlice({
           position: "bottom-left",
         });
       }
+
+      localStorage.setItem(
+        "favoriteItems",
+        JSON.stringify(state.favoriteItems)
+      );
     },
     removeFavorite: (state, action) => {
       //   const itemFilter = state.favoriteItems.filter(
