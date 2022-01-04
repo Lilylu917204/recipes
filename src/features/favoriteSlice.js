@@ -16,7 +16,7 @@ const favoriteSlice = createSlice({
 
       if (itemIndex < 0) {
         state.favoriteItems.push(action.payload);
-        toast.success("added a recipe to favorite", {
+        toast.success(`${action.payload.label} added to favorite`, {
           position: "bottom-left",
         });
       }
