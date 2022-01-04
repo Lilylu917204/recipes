@@ -1,6 +1,6 @@
 import React from "react";
 import { getRecipe } from "../../features/appSlice";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import "./RecipeListing.scss";
 
