@@ -50,13 +50,14 @@ function App() {
         {/* {window.location.pathname !== "/recipe/login" && <Header />} */}
         <div className="container">
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/login" component={Login}>
               {user ? <Redirect to="/" /> : undefined}
             </Route>
             <Route path="/:mealType/:recipeId" component={RecipeDetail} />
             <Route path="/:mealType" component={MealType} />
-            <Route component={PageNotFound} />
+            <Route path="/" exact component={Home} />
+            <Redirect to="page-not-found" />
           </Switch>
         </div>
         <Footer />
