@@ -73,3 +73,92 @@ body {
 .addFavorites--red {
   color: red;
 }
+
+/* recipeFavorite  */
+
+.recipeFavorite_container {
+  padding: 2rem 4rem;
+}
+
+.recipeFavorite_container > h2 {
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+}
+
+.recipeFavorite_container .titles {
+  margin: 2rem 0 1rem 0;
+}
+
+.recipeFavorite_container .titles h3 {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.recipe-item {
+  border-top: 1px solid rgba(187, 187, 187);
+  padding: 1rem 0;
+}
+
+.recipe-item .recipe-label {
+  display: flex;
+}
+
+.recipe-item,
+.recipeFavorite_container .titles {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 3fr 2fr 1fr;
+  column-gap: 0.5rem;
+}
+
+.recipeFavorite_container .titles .recipe-title {
+  padding-left: 0.5rem;
+}
+
+.recipe-item .recipe-label img {
+  width: 100px;
+  max-width: 100%;
+  margin-right: 1rem;
+}
+
+.recipe-item .recipe-label h3 {
+  font-weight: 400;
+}
+
+.recipe-item .recipe-label button {
+  border: none;
+  outline: none;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  background-color: none;
+  color: gray;
+}
+
+.recipe-item .recipe-label button:hover {
+  color: black;
+}
+
+.recipe-calories {
+  display: flex;
+}
+
+.recipe-dietLabels h4 {
+  font-weight: 400;
+  color: gray;
+}
+
+.recipe-empty {
+  font-size: 20px;
+  margin-top: 2rem;
+  color: rgba(84, 84, 84);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe-empty .start-searching-recipes a {
+  text-decoration: none;
+  color: gray;
+}

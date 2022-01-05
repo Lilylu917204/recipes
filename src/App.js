@@ -12,6 +12,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MealType from "./components/MealType/MealType";
 import Login from "./components/Login/Login";
+import RecipeFavorite from "./components/RecipeFavorite";
 import { useSelector, useDispatch } from "react-redux";
 
 import { selectUser, login, logout } from "./features/userSlice";
@@ -50,12 +51,13 @@ function App() {
         {/* {window.location.pathname !== "/recipe/login" && <Header />} */}
         <div className="container">
           <Switch>
-            <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/login" component={Login}>
               {user ? <Redirect to="/" /> : undefined}
             </Route>
+            <Route path="/favorite" component={RecipeFavorite} />
             <Route path="/:mealType/:recipeId" component={RecipeDetail} />
             <Route path="/:mealType" component={MealType} />
+            <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/" exact component={Home} />
             <Redirect to="page-not-found" />
           </Switch>
