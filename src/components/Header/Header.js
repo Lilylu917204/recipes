@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectUser, logout } from "../../features/userSlice";
 import { auth } from "../../common/firebase/firebase";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import IconButton from "@mui/material/IconButton";
 
 function Header() {
   const user = useSelector(selectUser);
@@ -33,18 +35,8 @@ function Header() {
   };
 
   return (
-    <div>
-      Header
-      <form onSubmit={submitHandler}>
-        <input
-          value={term}
-          type="text"
-          placeholder="Search Recipes..."
-          onChange={(e) => setTerm(e.target.value)}
-        />
-        <button type="submit">Click</button>
-      </form>
-      <div>
+    <div className="header_container">
+      <div className="header-login">
         {user ? (
           <>
             <div>
@@ -61,6 +53,20 @@ function Header() {
           </Link>
         )}
       </div>
+      <form onSubmit={submitHandler}>
+        <input
+          value={term}
+          type="text"
+          placeholder="Search Recipes..."
+          onChange={(e) => setTerm(e.target.value)}
+        />
+        <button type="submit">Click</button>
+      </form>
+      <Link to="favorite">
+        <IconButton aria-label="favorite list">
+          <FavoriteIcon className="favoriteIcon" />
+        </IconButton>
+      </Link>
     </div>
   );
 }

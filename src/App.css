@@ -26,6 +26,34 @@ body {
   font-size: 30px;
 }
 
+/* header */
+
+.header_container {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 0 4rem;
+}
+
+.header-login a {
+  text-decoration: none;
+  color: white;
+}
+
+.header-login h4 {
+  font-weight: 400;
+}
+
+.favoriteIcon {
+  color: white;
+}
+
+.favoriteIcon:hover {
+  color: red;
+}
+
 .recipeList {
   display: flex;
   flex-wrap: wrap;
