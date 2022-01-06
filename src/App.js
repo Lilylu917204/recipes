@@ -13,6 +13,7 @@ import Footer from "./components/Footer/Footer";
 import MealType from "./components/MealType/MealType";
 import Login from "./components/Login/Login";
 import RecipeFavorite from "./components/RecipeFavorite";
+import ScrollTopArrow from "./components/ScrollTopArrow";
 import { useSelector, useDispatch } from "react-redux";
 
 import { selectUser, login, logout } from "./features/userSlice";
@@ -48,6 +49,7 @@ function App() {
       <Router basename="/recipe">
         <ToastContainer />
         <Header />
+        <ScrollTopArrow />
         {/* {window.location.pathname !== "/recipe/login" && <Header />} */}
         <div className="container">
           <Switch>

@@ -33,8 +33,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
+  background-color: #212529;
   padding: 0 4rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .header-login a {
@@ -161,4 +162,57 @@ body {
 .recipe-empty .start-searching-recipes a {
   text-decoration: none;
   color: gray;
+}
+
+/* Scroll Top */
+
+.scrollTop {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 10%;
+  right: 5%;
+  background: hsl(0, 0%, 25%);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  display: none;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  opacity: 0.7;
+  z-index: 1000;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px -6px rgba(66, 63, 66, 0.81);
+}
+
+.scrollTop i {
+  color: #fff;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.scrollTop:hover {
+  opacity: 1;
+  background: hsl(0, 0%, 20%);
+}
+
+.scrollTop:hover i {
+  color: #fff;
+}
+
+.scrollTop:active {
+  background-color: #555;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }

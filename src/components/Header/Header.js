@@ -62,7 +62,7 @@ function Header() {
         />
         <button type="submit">Click</button>
       </form>
-      <Link to="favorite">
+      <Link to="favorite" title="Favorite">
         <IconButton aria-label="favorite list">
           <FavoriteIcon className="favoriteIcon" />
         </IconButton>
