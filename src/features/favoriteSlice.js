@@ -35,6 +35,14 @@ const favoriteSlice = createSlice({
       );
 
       state.favoriteItems = favoriteFilter;
+      localStorage.setItem(
+        "favoriteItems",
+        JSON.stringify(state.favoriteItems)
+      );
+
+      toast.error(`${action.payload.label} removed from favorite`, {
+        position: "bottom-left",
+      });
     },
   },
 });
