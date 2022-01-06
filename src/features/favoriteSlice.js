@@ -28,16 +28,18 @@ const favoriteSlice = createSlice({
         JSON.stringify(state.favoriteItems)
       );
     },
-    removeFavorite: (state, action) => {
-      //   const itemFilter = state.favoriteItems.filter(
-      //     (item) => item.uri !== action.payload.uri
-      //   );
-      //   state.favoriteItems = itemFilter;
+
+    removeFromFavorite: (state, action) => {
+      const favoriteFilter = state.favoriteItems.filter(
+        (item) => item.uri !== action.payload.uri
+      );
+
+      state.favoriteItems = favoriteFilter;
     },
   },
 });
 
-export const { addItemToFavorite, removeFavorite } = favoriteSlice.actions;
+export const { addItemToFavorite, removeFromFavorite } = favoriteSlice.actions;
 
 export const getFavoriteItems = (state) => state.favorite.favoriteItems;
 
