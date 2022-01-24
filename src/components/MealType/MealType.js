@@ -8,6 +8,7 @@ function MealType() {
   const [pageNumber, setPageNumber] = useState(0);
 
   let { mealType } = useParams();
+
   const mealTypeDetail = {
     params: {
       q: "",

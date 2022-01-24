@@ -6,6 +6,8 @@ import {
   removeFromFavorite,
 } from "../features/favoriteSlice";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { prettyPrintNum } from "./util";
 
 const RecipeFavorite = () => {
   const dispatch = useDispatch();
@@ -42,19 +44,24 @@ const RecipeFavorite = () => {
                     <img src={fav.image} alt={fav.label} width="200px" />
                     <div>
                       <h3>{fav.label}</h3>
-                      <button onClick={() => handleRemoveFromFav(fav)}>
-                        Remove
-                      </button>
                     </div>
                   </div>
                   <div className="recipe-calories">
                     <DirectionsRunIcon />
-                    {fav.calories}
+                    {`${prettyPrintNum(fav.calories)}`}
                   </div>
                   <div className="recipe-dietLabels">
                     {fav.dietLabels.map((dietLabel, index) => {
                       return <h4 key={index}>{dietLabel}</h4>;
                     })}
+                  </div>
+
+                  <div title="Remove">
+                    <DeleteIcon
+                      style={{ fontSize: 30 }}
+                      className="recipe-remove"
+                      onClick={() => handleRemoveFromFav(fav)}
+                    />
                   </div>
                 </div>
               );

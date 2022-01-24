@@ -5,9 +5,10 @@ import RecipeCard from "../RecipeCard/RecipeCard";
 import "./RecipeListing.scss";
 
 function RecipeListing({ pageNumber, setPageNumber }) {
-  const recipe = useSelector(getRecipe);
+  const recipeData = useSelector(getRecipe);
+  const recipe = recipeData.hits;
 
-  const displayRecipes = (recipe.hits || []).map((recipe, index) => {
+  const displayRecipes = (recipe || []).map((recipe, index) => {
     return <RecipeCard key={index} recipe={recipe} />;
   });
 

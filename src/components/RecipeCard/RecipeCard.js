@@ -19,6 +19,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import Button from "@mui/material/Button";
+import { prettyPrintNum } from "../util";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -33,11 +34,10 @@ const ExpandMore = styled((props) => {
 
 function RecipeCard({ recipe }) {
   const dataUrl = recipe.recipe.uri;
-  const recipeId = dataUrl.split("recipe_")[1];
 
-  // const recipeUri = data.recipe.uri.split(/([recipe_])/)[2];
+  const recipeId = dataUrl.split(/([_])/)[2];
 
-  const meals = recipe.recipe.mealType;
+  const meals = recipe.recipe.mealType[0].split(/([/])/)[0];
 
   const [expanded, setExpanded] = useState(false);
 
@@ -63,7 +63,7 @@ function RecipeCard({ recipe }) {
         subheader={
           <span>
             <DirectionsRunIcon />
-            {recipe.recipe.calories}
+            {`${prettyPrintNum(recipe.recipe.calories)}`}
           </span>
         }
       />
@@ -75,12 +75,7 @@ function RecipeCard({ recipe }) {
       />
       <CardContent>
         <Button variant="contained">
-          <Link
-            style={{ textDecoration: "none", color: "white" }}
-            to={`/${meals}/${recipeId}`}
-          >
-            Get Recipe
-          </Link>
+          <Link to={`/${meals}/${recipeId}`}>Get Recipe</Link>
         </Button>
       </CardContent>
       <CardActions disableSpacing>

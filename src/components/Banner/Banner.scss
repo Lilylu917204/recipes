@@ -1,9 +1,13 @@
 .banner {
+  position: relative;
   margin: 0 auto;
-  padding: 40px;
-  background: #419be0;
+  padding: 50px;
+  background: #7fdaf4;
+  height: 45vh;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .slick-slide img {
-  margin: auto;
+  margin: 45px auto;
+  object-fit: contain;
 }

@@ -26,6 +26,7 @@ function Banner() {
           <img src="http://placekitten.com/g/400/200" />
         </div>
       </Slider>
+      <div className="banner--fadeBottom" />
     </div>
   );
 }
