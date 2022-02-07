@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
 
 function Header() {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ function Header() {
 
   return (
     <nav className={`navbar ${showNavBar && "nav__black"}`}>
-      <div className="content">
+      <div className="header">
         <div className="logo">
           <Link to="/">Recipes</Link>
         </div>
@@ -45,20 +46,26 @@ function Header() {
           </div>
           <li>
             {" "}
-            <form onSubmit={submitHandler}>
+            <form
+              onSubmit={submitHandler}
+              title="Search"
+              className="headerForm"
+            >
               <input
                 value={term}
                 type="text"
                 placeholder="Search Recipes..."
                 onChange={(e) => setTerm(e.target.value)}
               />
-              <button type="submit">Click</button>
+              <IconButton aria-label="search list" type="submit">
+                <SearchIcon className="headerIcon searchIcon" />
+              </IconButton>
             </form>
           </li>
           <li>
             <Link to="favorite" title="Favorite">
               <IconButton aria-label="favorite list">
-                <FavoriteIcon className="favoriteIcon" />
+                <FavoriteIcon className="headerIcon favoriteIcon" />
               </IconButton>
             </Link>
           </li>
