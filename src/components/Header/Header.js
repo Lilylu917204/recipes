@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { fetchRecipe } from "../../features/appSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectUser, logout } from "../../features/userSlice";
-import { auth } from "../../common/firebase/firebase";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
 
 function Header() {
-  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const [showNavBar, setShowNavBar] = useState(false);
   const [term, setTerm] = useState("");
@@ -22,17 +20,6 @@ function Header() {
     if (term === "") return alert("Please enter recipe");
     dispatch(fetchRecipe(data));
     setTerm("");
-  };
-
-  const signOutHandler = (e) => {
-    e.preventDefault();
-    sessionStorage.removeItem("user");
-    auth
-      .signOut()
-      .then(() => {
-        dispatch(logout());
-      })
-      .catch((err) => alert(err));
   };
 
   const transitionNavBar = () => {
@@ -74,21 +61,6 @@ function Header() {
                 <FavoriteIcon className="favoriteIcon" />
               </IconButton>
             </Link>
-          </li>
-          <li>
-            {user ? (
-              <>
-                <div>
-                  <h4>Welcome,{user.displayName} </h4>
-                  <h4>uid:{user.uid} </h4>
-                </div>
-                <Link to="">
-                  <h4 onClick={signOutHandler}>Log Out</h4>
-                </Link>
-              </>
-            ) : (
-              <Link to="/login">Log In</Link>
-            )}
           </li>
         </ul>
         <div className="icon menu-btn">

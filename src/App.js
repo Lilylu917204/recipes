@@ -11,39 +11,17 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MealType from "./components/MealType/MealType";
-import Login from "./components/Login/Login";
+
 import RecipeFavorite from "./components/RecipeFavorite";
 import ScrollTopArrow from "./components/ScrollTopArrow";
-import { useSelector, useDispatch } from "react-redux";
 
-import { selectUser, login, logout } from "./features/userSlice";
-import { auth } from "./common/firebase/firebase";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
+import RecipeListing from "./components/RecipeListing/RecipeListing";
 
 function App() {
-  const user = useSelector(selectUser);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        dispatch(
-          login({
-            uid: authUser.uid,
-            email: authUser.email,
-            displayName: authUser.displayName,
-            photoURL: authUser.photoURL,
-          })
-        );
-      } else {
-        dispatch(logout());
-      }
-    });
-  }, [dispatch]);
-
   return (
     <div className="app">
       <Router basename="/recipe">
@@ -53,12 +31,10 @@ function App() {
         {/* {window.location.pathname !== "/recipe/login" && <Header />} */}
         <div className="container">
           <Switch>
-            <Route path="/login" component={Login}>
-              {user ? <Redirect to="/" /> : undefined}
-            </Route>
             <Route path="/favorite" component={RecipeFavorite} />
             <Route path="/:mealType/:recipeId" component={RecipeDetail} />
             <Route path="/:mealType" component={MealType} />
+            <Route path="/:page" component={RecipeListing} />
             <Route path="/page-not-found" component={PageNotFound} />
             <Route path="/" exact component={Home} />
             <Redirect to="page-not-found" />

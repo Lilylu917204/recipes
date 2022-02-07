@@ -13,8 +13,8 @@ function MealType() {
     params: {
       q: "",
       mealType,
-      from: pageNumber,
-      to: pageNumber + 10,
+      // from: pageNumber,
+      // to: pageNumber + 10,
     },
   };
 
