@@ -13,6 +13,8 @@ const RecipeFavorite = () => {
   const dispatch = useDispatch();
   const favorite = useSelector(getFavoriteItems);
 
+  console.log(favorite[0].uri);
+
   const handleRemoveFromFav = (recipe) => {
     dispatch(removeFromFavorite(recipe));
   };
@@ -37,15 +39,22 @@ const RecipeFavorite = () => {
             <h3 className="recipe-dietLabel">Diet Labels</h3>
           </div>
           <div className="recipe-items">
-            {favorite?.map((fav) => {
+            {favorite?.map((fav, i) => {
               return (
                 <div key={fav.uri} className="recipe-item">
-                  <div className="recipe-label">
-                    <img src={fav.image} alt={fav.label} width="200px" />
-                    <div>
-                      <h3>{fav.label}</h3>
+                  <Link
+                    to={`/${fav.mealType[0].split(/([/])/)[0]}/${
+                      fav.uri.split(/([_])/)[2]
+                    }`}
+                  >
+                    <div className="recipe-label">
+                      <img src={fav.image} alt={fav.label} width="200px" />
+                      <div>
+                        <h3>{fav.label}</h3>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
+
                   <div className="recipe-calories">
                     <DirectionsRunIcon />
                     {`${prettyPrintNum(fav.calories)}`}

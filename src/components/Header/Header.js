@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchRecipe } from "../../features/appSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
@@ -59,11 +59,12 @@ function Header() {
               />
               <IconButton aria-label="search list" type="submit">
                 <SearchIcon className="headerIcon searchIcon" />
+                {term ? <Redirect to="/breakfast" /> : null}
               </IconButton>
             </form>
           </li>
           <li>
-            <Link to="favorite" title="Favorite">
+            <Link to="/favorite" title="Favorite">
               <IconButton aria-label="favorite list">
                 <FavoriteIcon className="headerIcon favoriteIcon" />
               </IconButton>
@@ -75,49 +76,6 @@ function Header() {
         </div>
       </div>
     </nav>
-    // <div className={`header_container ${showNavBar && "header__black"}`}>
-    //   <div className="header__logo">
-    //     <Link to="/">
-    //       <h2>Recipes</h2>
-    //     </Link>
-    //   </div>
-
-    //   <div className="header__menu">
-    //     <div className="header-login">
-    //       {user ? (
-    //         <>
-    //           <div>
-    //             <h4>Welcome,{user.displayName} </h4>
-    //             <h4>uid:{user.uid} </h4>
-    //           </div>
-    //           <Link to="">
-    //             <h4 onClick={signOutHandler}>Log Out</h4>
-    //           </Link>
-    //         </>
-    //       ) : (
-    //         <Link to="/login">
-    //           <h4>Log In</h4>
-    //         </Link>
-    //       )}
-    //     </div>
-
-    //     <form onSubmit={submitHandler}>
-    //       <input
-    //         value={term}
-    //         type="text"
-    //         placeholder="Search Recipes..."
-    //         onChange={(e) => setTerm(e.target.value)}
-    //       />
-    //       <button type="submit">Click</button>
-    //     </form>
-
-    //     <Link to="favorite" title="Favorite">
-    //       <IconButton aria-label="favorite list">
-    //         <FavoriteIcon className="favoriteIcon" />
-    //       </IconButton>
-    //     </Link>
-    //   </div>
-    // </div>
   );
 }
 

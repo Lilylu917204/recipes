@@ -2,12 +2,24 @@
   position: relative;
   margin: 0 auto;
   padding: 50px;
-  background: #7fdaf4;
-  height: 45vh;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  // background: #7fdaf4;
+  height: 55vh;
+  // box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.banner__pic {
+  display: flex;
+  align-items: center;
+}
+
+.slide-img {
+  height: 450px;
 }
 
 .slick-slide img {
-  margin: 45px auto;
+  margin: 50px auto;
   object-fit: contain;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
