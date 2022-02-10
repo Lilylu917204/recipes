@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AddFavorites from "../AddFavorites";
+import { prettyPrintNum, truncate } from "../util";
 
 // material ui
 import { styled } from "@mui/material/styles";
@@ -19,7 +20,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import Button from "@mui/material/Button";
-import { prettyPrintNum } from "../util";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -59,7 +59,7 @@ function RecipeCard({ recipe }) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={recipe.recipe.label}
+        title={truncate(recipe.recipe.label, 25)}
         subheader={
           <span>
             <DirectionsRunIcon />
@@ -75,7 +75,7 @@ function RecipeCard({ recipe }) {
       />
       <CardContent>
         <Button variant="contained">
-          <Link to={`/${meals}/${recipeId}`}>Get Recipe</Link>
+          <Link to={`/recipe/meal/${meals}/${recipeId}`}>Get Recipe</Link>
         </Button>
       </CardContent>
       <CardActions disableSpacing>

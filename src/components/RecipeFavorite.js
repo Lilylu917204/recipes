@@ -39,11 +39,11 @@ const RecipeFavorite = () => {
             <h3 className="recipe-dietLabel">Diet Labels</h3>
           </div>
           <div className="recipe-items">
-            {favorite?.map((fav, i) => {
+            {favorite?.map((fav) => {
               return (
                 <div key={fav.uri} className="recipe-item">
                   <Link
-                    to={`/${fav.mealType[0].split(/([/])/)[0]}/${
+                    to={`/recipe/meal/${fav.mealType[0].split(/([/])/)[0]}/${
                       fav.uri.split(/([_])/)[2]
                     }`}
                   >

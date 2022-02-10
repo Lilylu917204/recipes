@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
 import Home from "./components/Home/Home";
 import RecipeDetail from "./components/RecipeDetail/RecipeDetail";
@@ -20,25 +20,31 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import RecipeListing from "./components/RecipeListing/RecipeListing";
+import RecipeCard from "./components/RecipeCard/RecipeCard";
 
 function App() {
   return (
     <div className="app">
-      <Router basename="/recipe">
+      <Router>
         <ToastContainer />
         <Header />
         <ScrollTopArrow />
-        {/* {window.location.pathname !== "/recipe/login" && <Header />} */}
         <div className="container">
-          <Switch>
-            <Route path="/favorite" component={RecipeFavorite} />
-            <Route path="/:mealType/:recipeId" component={RecipeDetail} />
-            <Route path="/:mealType" component={MealType} />
-            <Route path="/:page" component={RecipeListing} />
-            <Route path="/page-not-found" component={PageNotFound} />
-            <Route path="/" exact component={Home} />
-            <Redirect to="page-not-found" />
-          </Switch>
+          <Routes>
+            <Route path="/recipe/favorite" element={<RecipeFavorite />} />
+            <Route
+              path="/recipe/meal/:mealType/:recipeId"
+              element={<RecipeDetail />}
+            />
+            <Route path="/recipe/meal/:mealType" element={<MealType />} />
+            <Route path="/recipe/:page" element={<RecipeListing />} />
+            <Route path="/page-not-found" element={<PageNotFound />} />
+            <Route path="/recipe" exact element={<Home />} />
+            <Route
+              path="*"
+              element={<Navigate replace to="/page-not-found" />}
+            />{" "}
+          </Routes>
         </div>
         <Footer />
       </Router>

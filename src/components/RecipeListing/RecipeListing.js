@@ -14,6 +14,8 @@ function RecipeListing({ pageNumber, setPageNumber }) {
     return <RecipeCard key={index} recipe={recipe} />;
   });
 
+  console.log(recipeData);
+
   // const { page } = useParams();
 
   // const p = parseInt(page, 10);

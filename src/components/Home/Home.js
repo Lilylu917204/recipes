@@ -4,6 +4,7 @@ import { fetchRecipe, removeRecipe } from "../../features/appSlice";
 import { Link } from "react-router-dom";
 import types from "../../common/data";
 import Banner from "../Banner/Banner";
+import RecipeListing from "../RecipeListing/RecipeListing";
 import "./Home.scss";
 
 function Home() {
@@ -52,7 +53,7 @@ function Home() {
                     setActive(true);
                   }}
                 >
-                  <Link to={`/${type.title.toLowerCase()}`}>
+                  <Link to={`/recipe/meal/${type.title.toLowerCase()}`}>
                     <div className="card">
                       <div className="card__side card__side--front">
                         {" "}

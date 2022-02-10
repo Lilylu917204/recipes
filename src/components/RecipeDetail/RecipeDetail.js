@@ -6,7 +6,7 @@ import {
   removeRecipeDetail,
 } from "../../features/appSlice";
 import { useParams } from "react-router-dom";
-import { prettyPrintNum } from "../../components/util";
+import { prettyPrintNum } from "../util";
 
 function RecipeDetail() {
   let { recipeId } = useParams();
@@ -21,8 +21,6 @@ function RecipeDetail() {
       dispatch(removeRecipeDetail());
     };
   }, [dispatch, recipeId]);
-
-  console.log(selectRecipe);
 
   return (
     <div>
