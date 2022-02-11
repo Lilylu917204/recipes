@@ -75,7 +75,7 @@ function RecipeCard({ recipe }) {
       />
       <CardContent>
         <Button variant="contained">
-          <Link to={`/recipe/meal/${meals}/${recipeId}`}>Get Recipe</Link>
+          <Link to={`/recipe/${meals}/${recipeId}`}>Get Recipe</Link>
         </Button>
       </CardContent>
       <CardActions disableSpacing>

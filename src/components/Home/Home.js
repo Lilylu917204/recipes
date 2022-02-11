@@ -53,7 +53,7 @@ function Home() {
                     setActive(true);
                   }}
                 >
-                  <Link to={`/recipe/meal/${type.title.toLowerCase()}`}>
+                  <Link to={`/recipe/${type.title.toLowerCase()}`}>
                     <div className="card">
                       <div className="card__side card__side--front">
                         {" "}

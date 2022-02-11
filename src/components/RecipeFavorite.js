@@ -43,7 +43,7 @@ const RecipeFavorite = () => {
               return (
                 <div key={fav.uri} className="recipe-item">
                   <Link
-                    to={`/recipe/meal/${fav.mealType[0].split(/([/])/)[0]}/${
+                    to={`/recipe/${fav.mealType[0].split(/([/])/)[0]}/${
                       fav.uri.split(/([_])/)[2]
                     }`}
                   >

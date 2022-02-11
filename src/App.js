@@ -33,17 +33,17 @@ function App() {
           <Routes>
             <Route path="/recipe/favorite" element={<RecipeFavorite />} />
             <Route
-              path="/recipe/meal/:mealType/:recipeId"
+              path="/recipe/:mealType/:recipeId"
               element={<RecipeDetail />}
             />
-            <Route path="/recipe/meal/:mealType" element={<MealType />} />
-            <Route path="/recipe/:page" element={<RecipeListing />} />
+            <Route path="/recipe/:mealType" element={<MealType />} />
+            {/* <Route path="/recipe/:page" element={<RecipeListing />} /> */}
             <Route path="/page-not-found" element={<PageNotFound />} />
             <Route path="/recipe" exact element={<Home />} />
-            <Route
+            {/* <Route
               path="*"
               element={<Navigate replace to="/page-not-found" />}
-            />{" "}
+            /> */}
           </Routes>
         </div>
         <Footer />

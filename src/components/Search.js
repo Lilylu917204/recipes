@@ -78,7 +78,7 @@ function Search() {
 
 */
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useSearchParams,
   createSearchParams,
@@ -86,13 +86,15 @@ import {
 } from "react-router-dom";
 import { fetchRecipe } from "../features/appSlice";
 import { useDispatch } from "react-redux";
-import RecipeListing from "../components/RecipeListing/RecipeListing";
+import useFetch from "../components/hooks/useFetch";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   let searchTerm = searchParams.get("term") || "";
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // const [pageNumber, setPageNumber] = useState(0);
+  const { loading } = useFetch(searchTerm);
 
   const handleEvent = (e) => {
     const term = e.target.value;
@@ -106,18 +108,18 @@ const Search = () => {
 
   const submitEvent = (e) => {
     e.preventDefault();
-    dispatch(
-      fetchRecipe({
-        params: {
-          q: searchTerm,
-        },
-      })
-    );
+    // dispatch(
+    //   fetchRecipe({
+    //     params: {
+    //       q: searchTerm,
+    //       from: pageNumber,
+    //       to: pageNumber + 10,
+    //     },
+    //   })
+    // );
     navigate(`/recipe/${searchTerm}`);
     searchTerm = searchParams.get("");
   };
-
-  console.log(searchTerm);
 
   return (
     <>

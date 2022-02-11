@@ -14,8 +14,6 @@ function RecipeListing({ pageNumber, setPageNumber }) {
     return <RecipeCard key={index} recipe={recipe} />;
   });
 
-  console.log(recipeData);
-
   // const { page } = useParams();
 
   // const p = parseInt(page, 10);
@@ -33,16 +31,14 @@ function RecipeListing({ pageNumber, setPageNumber }) {
   return (
     <div>
       <div className="recipeList">{displayRecipes}</div>
-
-      {/* 
       <button onClick={PrePageRender}>
         Previous
-        <Link to={`/page/${pageNumber - 1}`}>Previous</Link>
+        {/* <Link to={`/page/${pageNumber - 1}`}>Previous</Link> */}
       </button>
       <button onClick={nextPageRender}>
         Next
-        <Link to={`/page/${pageNumber + 1}`}>Next</Link>
-      </button> */}
+        {/* <Link to={`/page/${pageNumber + 1}`}>Next</Link> */}
+      </button>
     </div>
   );
 }
