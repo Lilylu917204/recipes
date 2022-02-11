@@ -31,7 +31,6 @@ function MealType() {
 
   return (
     <div>
-      {loading ? <p>Loading ...</p> : null}
       <RecipeListing pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
