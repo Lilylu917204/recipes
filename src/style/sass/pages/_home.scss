@@ -45,21 +45,22 @@
   }
 
   &-heading{
-    font-size:$default-font-size;
-    font-weight:400;
+    font-size:1.8rem;
+    font-weight:500;
   }
 
   &-calories{
     text-align:center;
-    font-size:1.2rem;
-    color:gray;
+    font-size:1.5rem;
+    color:$color-gray-light;
+
   
   }
  
 }
 .recipeCard-icon{
   font-size:160% !important;
-  color:gray;
+  color:$color-gray-light;
 }
 
 .addFavorites--red {
