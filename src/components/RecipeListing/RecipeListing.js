@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { getRecipe } from "../../features/appSlice";
 import { useSelector, useDispatch } from "react-redux";
 import RecipeCard from "../RecipeCard/RecipeCard";
-import "./RecipeListing.scss";
 
 function RecipeListing({ pageNumber, setPageNumber }) {
   const recipeData = useSelector(getRecipe);

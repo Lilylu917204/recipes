@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import types from "../../common/data";
 import Banner from "../Banner/Banner";
 import RecipeListing from "../RecipeListing/RecipeListing";
-import "./Home.scss";
 
 function Home() {
   const dispatch = useDispatch();
@@ -30,11 +29,8 @@ function Home() {
   // }, [meals, active, data, dispatch]);
 
   return (
-    <div className="home">
-      {/* <Banner /> */}
-
-      <section className="section-meals">
-        <div className="section-meals--title">
+      <div className="home">
+        <div className="home__title">
           <h1 className="heading-primary">
             <span className="heading-primary--main">What to cook today?</span>
             <span className="heading-primary--sub">
@@ -75,9 +71,8 @@ function Home() {
             );
           })}
         </div>
-      </section>
-    </div>
-  );
+      </div>
+  )
 }
 
 export default Home;

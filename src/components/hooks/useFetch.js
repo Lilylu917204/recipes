@@ -20,7 +20,6 @@ function useFetch(term) {
     );
 
     return () => {
-      setLoading(false);
       dispatch(removeRecipe());
     };
   }, [term, pageNumber, dispatch]);

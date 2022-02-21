@@ -1,0 +1,22 @@
+.home{
+    background-color:$color-gray-light;
+    margin: 5rem auto;
+    padding: 1rem;
+  
+    &__title {
+      margin-top: 5rem;
+      padding: 2rem;
+      height: 40vh;
+    }
+  
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #d8dee9;
+  padding: 2rem;
+  margin: 1rem;
+}

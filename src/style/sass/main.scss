@@ -1,0 +1,24 @@
+// abstracts
+
+@import "./abstracts/variables";
+
+// base
+
+@import "./base/base";
+@import "./base/typography";
+@import "./base/animations";
+@import "./base/utilities";
+
+// components
+
+@import "./components/card";
+@import "./components/scrollTop";
+@import "./components/button";
+@import "./components/favorite";
+
+
+// pages
+
+@import "./pages/home";
+@import "./pages/recipeFav";
+@import "./pages/pnf";

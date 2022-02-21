@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap");
+
+
+body{
+ font-family: "Nunito", sans-serif;
+}
+
+.heading-primary {
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 5rem;
+    text-align: center;
+    font-weight: 700;
+    color:$color-black;
+  
+    &--main {
+      display: block;
+      font-size: 5rem;
+      letter-spacing: 1.5rem;
+      animation: moveInLeft 1s ease-in-out;
+      margin-bottom: 4rem;
+    }
+  
+    &--sub {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: 2.2rem;
+      animation: moveInRight 1s ease-out;
+    }
+  }
+  
+
+.heading-secondary{ 
+      font-weight: 700;
+      font-size: 4rem;
+      display:inline-block;
+      text-transform:uppercase;
+      color:$color-black;
+      letter-spacing:1rem;
+    }
+
+
+.heading-tertiary {
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing:.5rem;
+
+    } 

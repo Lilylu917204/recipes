@@ -13,41 +13,42 @@ const RecipeFavorite = () => {
   const dispatch = useDispatch();
   const favorite = useSelector(getFavoriteItems);
 
-  console.log(favorite[0].uri);
 
   const handleRemoveFromFav = (recipe) => {
     dispatch(removeFromFavorite(recipe));
   };
 
   return (
-    <div className="recipeFavorite_container">
-      <h2>My Saved Recipes</h2>
+    <div className="recipeFav">
+    <div className="u-center-text u-margin-bottom-big">
+      <h2 className="heading-secondary">My Saved Recipes</h2>
+    </div>
       {favorite.length === 0 ? (
-        <div className="recipe-empty">
-          <p>You have not saved any recipes recently</p>
-          <div className="start-searching-recipes">
-            <Link to="/">
-              <span>Search all Recipes</span>
-            </Link>
+        <div className="empty">
+          <div className="u-center-text u-margin-bottom-medium">
+            <h3 className="heading-tertiary">You have not saved any recipes recently</h3>
           </div>
+          <Link to="/recipe" className="btn-text">
+             Search all Recipes
+          </Link>
         </div>
       ) : (
-        <div>
-          <div className="titles">
-            <h3 className="recipe-title">Recipe</h3>
-            <h3 className="recipe-calories">Calories</h3>
-            <h3 className="recipe-dietLabel">Diet Labels</h3>
+        <div className="favorite">
+          <div className="favorite-titles">
+            <h3 className="favorite-heading favorite-title">Recipe</h3>
+            <h3 className="favorite-heading  recipe-calories">Calories</h3>
+            <h3 className="favorite-heading  recipe-dietLabel">Diet Labels</h3>
           </div>
-          <div className="recipe-items">
+          <div className="favorite-items">
             {favorite?.map((fav) => {
               return (
-                <div key={fav.uri} className="recipe-item">
+                <div key={fav.uri} className="favorite-item">
                   <Link
                     to={`/recipe/${fav.mealType[0].split(/([/])/)[0]}/${
                       fav.uri.split(/([_])/)[2]
                     }`}
                   >
-                    <div className="recipe-label">
+                    <div className="favorite-label favorite-label--grid">
                       <img src={fav.image} alt={fav.label} width="200px" />
                       <div>
                         <h3>{fav.label}</h3>
@@ -55,20 +56,20 @@ const RecipeFavorite = () => {
                     </div>
                   </Link>
 
-                  <div className="recipe-calories">
+                  <div className="favorite-label favorite-calories">
                     <DirectionsRunIcon />
                     {`${prettyPrintNum(fav.calories)}`}
                   </div>
-                  <div className="recipe-dietLabels">
+                  <div className="favorite-label favorite-dietLabels">
                     {fav.dietLabels.map((dietLabel, index) => {
-                      return <h4 key={index}>{dietLabel}</h4>;
+                      return <h3 key={index}>{dietLabel}</h3>;
                     })}
                   </div>
 
-                  <div title="Remove">
+                  <div title="remove">
                     <DeleteIcon
                       style={{ fontSize: 30 }}
-                      className="recipe-remove"
+                      className="remove-icon"
                       onClick={() => handleRemoveFromFav(fav)}
                     />
                   </div>

@@ -29,9 +29,12 @@ function MealType() {
   //   };
   // }, [dispatch, mealType, pageNumber]);
 
+  console.log(loading);
+
   return (
     <div>
       <RecipeListing pageNumber={pageNumber} setPageNumber={setPageNumber} />
+      {loading ? <h1>Loading...</h1> : null}
     </div>
   );
 }
