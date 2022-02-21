@@ -20,3 +20,48 @@
   padding: 2rem;
   margin: 1rem;
 }
+
+
+.recipeList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto;
+  /* height: 700vh; */
+}
+
+.recipeCard {
+  position: relative;
+  transition: transform 0.2s;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+  margin: 2rem 2rem;
+
+  a{
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &-heading{
+    font-size:$default-font-size;
+    font-weight:400;
+  }
+
+  &-calories{
+    text-align:center;
+    font-size:1.2rem;
+    color:gray;
+  
+  }
+ 
+}
+.recipeCard-icon{
+  font-size:160% !important;
+  color:gray;
+}
+
+.addFavorites--red {
+  color: red;
+}

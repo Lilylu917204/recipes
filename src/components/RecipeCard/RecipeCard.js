@@ -54,14 +54,9 @@ function RecipeCard({ recipe }) {
             R
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={truncate(recipe.recipe.label, 25)}
+        title={<h4 className="recipeCard-heading">{truncate(recipe.recipe.label, 25)}</h4>}
         subheader={
-          <span>
+          <span className="recipeCard-calories">
             <DirectionsRunIcon />
             {`${prettyPrintNum(recipe.recipe.calories)}`}
           </span>
@@ -79,9 +74,9 @@ function RecipeCard({ recipe }) {
         </Button>
       </CardContent>
       <CardActions disableSpacing>
-        <AddFavorites recipe={recipe.recipe} />
+        <AddFavorites recipe={recipe.recipe}/>
         <IconButton aria-label="share">
-          <ShareIcon />
+          <ShareIcon className="recipeCard-icon"/>
         </IconButton>
         <ExpandMore
           expand={expanded}
@@ -89,17 +84,17 @@ function RecipeCard({ recipe }) {
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon />
+          <ExpandMoreIcon className="recipeCard-icon"/>
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph variant="h5" sx={{ textAlign: "center" }}>
+          <Typography paragraph variant="h4" sx={{ textAlign: "center" }}>
             Ingredients:
           </Typography>
           {recipe.recipe.ingredients.map((ing, index) => {
             return (
-              <Typography paragraph key={index}>
+              <Typography paragraph variant="h5" key={index}>
                 {ing.text}
               </Typography>
             );

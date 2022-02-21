@@ -19,7 +19,7 @@ const AddFavorites = ({ recipe }) => {
         onClick={() => handleAddToFavorite(recipe)}
         aria-label="add to favorites"
       >
-        <FavoriteIcon className={addFavorites ? "addFavorites--red" : ""} />
+        <FavoriteIcon className={addFavorites ? "addFavorites--red" : ""} className="recipeCard-icon" />
       </IconButton>
     </>
   );
