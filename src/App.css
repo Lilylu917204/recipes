@@ -2,19 +2,21 @@
 
 .header {
   margin: auto;
-  padding: 0 30px;
+  padding: 0px 30px;
 }
 .navbar {
+  padding: 15px 20px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 2;
   transition: all 0.5s ease-in;
-  background-color: #868e96;
+  background-color: white;
+  box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
 }
 .nav__black {
-  background-color: #868e96;
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  /* background-color: #868e96; */
+  /* box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1); */
 }
 .navbar .header {
   display: flex;
@@ -23,7 +25,7 @@
 }
 
 .navbar .logo a {
-  color: #fff;
+  color: black;
   font-size: 30px;
   font-weight: 600;
   text-decoration: none;
@@ -38,7 +40,7 @@
   list-style: none;
 }
 .menu-list li a {
-  color: #fff;
+  color: black;
   font-size: 18px;
   font-weight: 500;
   margin-left: 25px;
@@ -62,7 +64,7 @@
   text-align: justify;
 }
 .icon {
-  color: #fff;
+  color: black;
   font-size: 20px;
   cursor: pointer;
   display: none;
@@ -166,7 +168,7 @@
 }
 
 .favoriteIcon {
-  color: white;
+  color: #1c1e21;
 }
 
 .headerForm {
@@ -187,9 +189,8 @@
 
 ::placeholder {
   color: #868e96;
-  font-size: 0.95rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  padding-left: 1em;
   font-family: "Nunito", sans-serif;
 }
 
@@ -197,9 +198,14 @@
   color: #868e96;
 }
 
+.form input {
+  background-color: transparent;
+  border: none;
+  outline-width: 0;
+}
 
-
-
-
-
-
+.form {
+  border-radius: 33px;
+  padding: 10px;
+  background-color: #f0f2f5;
+}

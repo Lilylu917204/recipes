@@ -13,23 +13,24 @@ const RecipeFavorite = () => {
   const dispatch = useDispatch();
   const favorite = useSelector(getFavoriteItems);
 
-
   const handleRemoveFromFav = (recipe) => {
     dispatch(removeFromFavorite(recipe));
   };
 
   return (
     <div className="recipeFav">
-    <div className="u-center-text u-margin-bottom-big">
-      <h2 className="heading-secondary">My Saved Recipes</h2>
-    </div>
+      <div className="u-center-text u-margin-bottom-big">
+        <h2 className="heading-secondary">My Saved Recipes</h2>
+      </div>
       {favorite.length === 0 ? (
         <div className="empty">
           <div className="u-center-text u-margin-bottom-medium">
-            <h3 className="heading-tertiary">You have not saved any recipes recently</h3>
+            <h3 className="heading-tertiary">
+              You have not saved any recipes recently
+            </h3>
           </div>
           <Link to="/recipe" className="btn-text">
-             Search all Recipes
+            Search all Recipes
           </Link>
         </div>
       ) : (

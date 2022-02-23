@@ -80,7 +80,10 @@ function Header() {
           <li>
             <Link to="/recipe/favorite" title="Favorite">
               <IconButton aria-label="favorite list">
-                <FavoriteIcon className="headerIcon favoriteIcon" />
+                <FavoriteIcon
+                  className="headerIcon favoriteIcon"
+                  fontSize="large"
+                />
               </IconButton>
             </Link>
           </li>

@@ -123,8 +123,13 @@ const Search = () => {
 
   return (
     <>
-      <form onSubmit={submitEvent}>
-        <input type="text" value={searchTerm} onChange={handleEvent} />
+      <form onSubmit={submitEvent} className="form">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleEvent}
+          placeholder="search..."
+        />
       </form>
     </>
   );
