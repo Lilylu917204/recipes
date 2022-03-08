@@ -7,6 +7,8 @@ import {
 } from "../features/favoriteSlice";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import { prettyPrintNum } from "./util";
 
 const RecipeFavorite = () => {
@@ -35,46 +37,50 @@ const RecipeFavorite = () => {
         </div>
       ) : (
         <div className="favorite">
-          <div className="favorite-titles">
-            <h3 className="favorite-heading favorite-title">Recipe</h3>
-            <h3 className="favorite-heading  recipe-calories">Calories</h3>
-            <h3 className="favorite-heading  recipe-dietLabel">Diet Labels</h3>
-          </div>
-          <div className="favorite-items">
+          <h3 className="favorite__titles heading-tertiary u-margin-bottom-medium">
+            <span>Recipe</span>
+            <span>Calories</span>
+            <span>Diet Labels</span>
+          </h3>
+
+          <div className="favorite__items paragraph">
             {favorite?.map((fav) => {
               return (
-                <div key={fav.uri} className="favorite-item">
+                <ul
+                  key={fav.uri}
+                  className="favorite__item u-margin-bottom-small u-border-top"
+                >
                   <Link
                     to={`/recipe/${fav.mealType[0].split(/([/])/)[0]}/${
                       fav.uri.split(/([_])/)[2]
                     }`}
                   >
-                    <div className="favorite-label favorite-label--grid">
-                      <img src={fav.image} alt={fav.label} width="200px" />
-                      <div>
-                        <h3>{fav.label}</h3>
+                    <li className="favorite__item--label">
+                      <div className="favorite__item--label--image">
+                        <img src={fav.image} alt={fav.label} width="200px" />
                       </div>
-                    </div>
+                      <div className="favorite__item--label--span ">
+                        <span>{fav.label}</span>
+                      </div>
+                    </li>
                   </Link>
-
-                  <div className="favorite-label favorite-calories">
-                    <DirectionsRunIcon />
-                    {`${prettyPrintNum(fav.calories)}`}
-                  </div>
-                  <div className="favorite-label favorite-dietLabels">
+                  <li className="favorite__item--calories">
+                    <DirectionsRunIcon fontSize="large" />
+                    <span>{`${prettyPrintNum(fav.calories)}`}</span>
+                  </li>
+                  <li>
                     {fav.dietLabels.map((dietLabel, index) => {
-                      return <h3 key={index}>{dietLabel}</h3>;
+                      return <span key={index}>{dietLabel}</span>;
                     })}
-                  </div>
-
-                  <div title="remove">
+                  </li>
+                  <li className="remove">
                     <DeleteIcon
                       style={{ fontSize: 30 }}
                       className="remove-icon"
                       onClick={() => handleRemoveFromFav(fav)}
                     />
-                  </div>
-                </div>
+                  </li>
+                </ul>
               );
             })}
           </div>

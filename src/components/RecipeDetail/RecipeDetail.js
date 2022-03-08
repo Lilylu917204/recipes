@@ -31,12 +31,11 @@ function RecipeDetail() {
         : selectRecipe.map((recipe) => {
             return (
               <div key={recipe.label} className="recipeDetail">
-                {/* <div className="recipeDetail__left"> */}
                 <Card className="recipeDetail__left">
                   <CardContent>
                     <div className="info">
-                      <div className="info__top">
-                        <h2 className="heading-secondary u-center-text u-margin-bottom-medium">
+                      <div className="info__top u-margin-bottom-medium u-center-text">
+                        <h2 className="heading-secondary u-border-bottom">
                           <span>{recipe.label}</span>
                         </h2>
                       </div>
@@ -52,7 +51,7 @@ function RecipeDetail() {
                             <span>diet labels : {recipe.dietLabels}</span>
                           </h3>
                           <a
-                            className="btn-text u-center-text"
+                            className="btn-text"
                             href={recipe.url}
                             target="_blank"
                           >
@@ -61,54 +60,23 @@ function RecipeDetail() {
                         </div>
                       </div>
                     </div>
-
-                    {/* <div className="detail">
-                      <div className="recipeDetail__left--top">
-                        <h2 className="heading-secondary u-center-text u-margin-bottom-medium">
-                          <span>{recipe.label}</span>
-                        </h2>
-                      </div>
-                      <div className="recipeDetail__left--bottom">
-                        <div className="recipeDetail__left--top--image">
-                          <img src={recipe.image} alt={recipe.label} />
-                        </div>
-                        <div>
-                          <h3 className="heading-tertiary">
-                            <span>
-                              calories:{prettyPrintNum(recipe.calories)}
-                            </span>
-                            <span>diet labels : {recipe.dietLabels}</span>
-                          </h3>
-                          <a href={recipe.url} target="_blank">
-                            <button type="submit">Source</button>
-                          </a>
-                        </div>
-                      </div>
-                    </div> */}
                   </CardContent>
                 </Card>
-                {/* <Card className="recipeDetail__left--bottom">
-                  <CardContent> */}
-
-                {/* </CardContent>
-                </Card> */}
-                {/* </div> */}
-
                 <Card className="recipeDetail__right">
                   <CardContent>
                     <div className="ingredient">
-                      <div className=" ingredient__heading u-center-text u-margin-bottom-medium">
+                      <div className=" ingredient__heading u-center-text u-margin-bottom-medium u-border-bottom">
                         <span className="heading-tertiary">ingredients</span>
                       </div>
 
                       <div className="ingredient__details">
                         {recipe.ingredients.map((ing) => {
                           return (
-                            <div className="ingredient__detail">
-                              <h4 className="ingredient__detail--span  u-margin-bottom-small">
+                            <div className="ingredient__detail u-center-text">
+                              <h4 className="paragraph ingredient__detail--span  u-margin-bottom-small">
                                 {ing.text}
                               </h4>
-                              <div className="ingredient__detail--pic">
+                              <div className="ingredient__detail--image">
                                 <img src={ing.image} alt={ing.food} />
                               </div>
                             </div>

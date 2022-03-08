@@ -1,0 +1,19 @@
+.form {
+  border-radius: 33px;
+  padding: 10px;
+  background-color: $color-primary;
+
+  input {
+    background-color: transparent;
+    border: none;
+    outline-width: 0;
+    font-size: $default-font-size;
+  }
+}
+
+::placeholder {
+  color: $color-gray-dark-3;
+  font-size: $default-font-size;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+}

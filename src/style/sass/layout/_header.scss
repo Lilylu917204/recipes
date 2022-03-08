@@ -1,8 +1,6 @@
-/* header */
-
 .header {
   margin: auto;
-  padding: 0px 30px;
+  padding: 0 3rem;
 }
 .navbar {
   padding: 15px 20px;
@@ -15,8 +13,7 @@
   box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
 }
 .nav__black {
-  /* background-color: #868e96; */
-  /* box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1); */
+  // box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
 }
 .navbar .header {
   display: flex;
@@ -35,6 +32,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
+  right: 5rem;
 }
 .menu-list li {
   list-style: none;
@@ -52,28 +51,6 @@
   color: #007bff;
 }
 
-.about {
-  padding: 30px 0;
-}
-.about .title {
-  font-size: 38px;
-  font-weight: 700;
-}
-.about p {
-  padding-top: 20px;
-  text-align: justify;
-}
-.icon {
-  color: black;
-  font-size: 20px;
-  cursor: pointer;
-  display: none;
-}
-.menu-list .cancel-btn {
-  position: absolute;
-  right: 30px;
-  top: 20px;
-}
 @media (max-width: 1230px) {
   .header {
     padding: 0 60px;
@@ -131,81 +108,4 @@
   .navbar .logo a {
     font-size: 27px;
   }
-}
-
-.header_container {
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  height: 20vh;
-  padding: 0 4rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  transition-timing-function: ease-in;
-  transition: all 0.5s;
-}
-
-.header__black {
-  background-color: #111;
-}
-
-.header_container a {
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-.header__menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.favoriteIcon {
-  color: #1c1e21;
-}
-
-.headerForm {
-  border-radius: 30px;
-  background-color: #fff;
-}
-
-.headerForm > input {
-  border: none;
-  background-color: transparent;
-  outline: none;
-  font-size: 0.95rem;
-  font-weight: bold;
-  padding-left: 1em;
-  font-family: "Nunito", sans-serif;
-  color: #868e96;
-}
-
-::placeholder {
-  color: #868e96;
-  font-size: 1.6rem;
-  font-weight: bold;
-  font-family: "Nunito", sans-serif;
-}
-
-.searchIcon {
-  color: #868e96;
-}
-
-.form input {
-  background-color: transparent;
-  border: none;
-  outline-width: 0;
-}
-
-.form {
-  border-radius: 33px;
-  padding: 10px;
-  background-color: #f0f2f5;
 }

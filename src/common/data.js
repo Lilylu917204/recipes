@@ -1,3 +1,12 @@
+import HomeIcon from "@mui/icons-material/Home";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import SearchIcon from "@mui/icons-material/Search";
+import FreeBreakfastIcon from "@mui/icons-material/FreeBreakfast";
+import LunchDiningIcon from "@mui/icons-material/LunchDining";
+import RamenDiningIcon from "@mui/icons-material/RamenDining";
+import CookieIcon from "@mui/icons-material/Cookie";
+import WineBarIcon from "@mui/icons-material/WineBar";
+
 const types = [
   {
     title: "Breakfast",
@@ -31,4 +40,49 @@ const types = [
   },
 ];
 
-export default types;
+const sidebarData = [
+  {
+    title: "Home",
+    icon: <HomeIcon fontSize="large" />,
+    path: "/recipe",
+    className: "sidebar__item",
+  },
+  {
+    title: "Favorite",
+    icon: <FavoriteIcon fontSize="large" />,
+    path: "/recipe/favorite",
+    className: "sidebar__item",
+  },
+  {
+    title: "Breakfast",
+    icon: <FreeBreakfastIcon fontSize="large" />,
+    path: "/recipe/breakfast",
+    className: "sidebar__item",
+  },
+  {
+    title: "Lunch",
+    icon: <LunchDiningIcon fontSize="large" />,
+    path: "/recipe/lunch",
+    className: "sidebar__item",
+  },
+  {
+    title: "Dinner",
+    icon: <RamenDiningIcon fontSize="large" />,
+    path: "/recipe/dinner",
+    className: "sidebar__item",
+  },
+  {
+    title: "Snack",
+    icon: <CookieIcon fontSize="large" />,
+    path: "/recipe/snack",
+    className: "sidebar__item",
+  },
+  {
+    title: "Teatime",
+    icon: <WineBarIcon fontSize="large" />,
+    path: "/recipe/teatime",
+    className: "sidebar__item",
+  },
+];
+
+export { types, sidebarData };

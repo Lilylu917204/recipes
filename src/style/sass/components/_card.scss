@@ -1,62 +1,60 @@
 .card {
-    perspective: 15000px;
-    -moz-perspective: 15000px;
-    position: relative;
+  perspective: 15000px;
+  -moz-perspective: 15000px;
+  position: relative;
+  height: 300px;
+  width: 350px;
+  overflow: hidden;
+  margin: 4rem;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &__side {
     height: 300px;
-    width: 350px;
-    overflow: hidden;
-    margin: 3rem 2rem;
-    border-radius: 10px;
-    overflow: hidden;
-  
-    &__side {
-      height: 300px;
-      transition: all 0.8s ease;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      backface-visibility: hidden;
-      box-shadow: 0 1.5rem 4rem rgba(#111, 0.15);
-  
-      &--front {
-        background-color: gray;
-  
-        &--img {
-          width: 100%;
-          height: 100%;
-          opacity: 65%;
-          background-size: cover;
-        }
-        &--heading {
-          font-size: 2rem;
-          letter-spacing: 0.3rem;
-          position: absolute;
-          top: 40%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          text-align: center;
-          color: #fff;
-          text-shadow: black 0.1em 0.1em 0.2em;
-        }
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    box-shadow: 0 1.5rem 4rem rgba(#111, 0.15);
+
+    &--front {
+      background-color: $color-gray-light;
+
+      &--img {
+        width: 100%;
+        height: 100%;
+        opacity: 65%;
+        background-size: cover;
       }
-  
-      &--back {
-        transform: rotateY(180deg);
-  
-        &-1 {
-          background-color: #fff;
-        }
+      &--heading {
+        font-size: 4rem;
+        letter-spacing: 0.3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: $color-white;
+        text-shadow: $color-black 0.1em 0.1em 0.2em;
       }
     }
-  
-    &:hover &__side--front {
-      transform: rotateY(-180deg);
-    }
-  
-    &:hover &__side--back {
-      transform: rotateY(0deg);
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-color: #fff;
+      }
     }
   }
-  
-  
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+}

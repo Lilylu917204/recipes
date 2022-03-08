@@ -1,0 +1,25 @@
+.recipeCard {
+    position: relative;
+    transition: transform 0.2s;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+    margin: 2rem 2rem;
+  
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+  
+    &-heading {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+  
+    &-calories {
+      text-align: center;
+      font-size: 1.5rem;
+      color: $color-gray-dark-3;
+    }
+  }
+  

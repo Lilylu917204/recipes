@@ -1,0 +1,29 @@
+.remove {
+  color: #434c5e;
+
+  &-icon:hover {
+    cursor: pointer;
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    color: $color-black;
+  }
+}
+
+.favoriteIcon {
+  color: $color-gray-dark-3;
+}
+
+.searchIcon {
+  color: $color-gray-dark-3;
+}
+
+.recipeCard-icon {
+  font-size: 160% !important;
+  color: $color-gray-dark-3;
+}
+
+.addFavorites--red {
+  color: red;
+}

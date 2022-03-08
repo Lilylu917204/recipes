@@ -18,7 +18,6 @@ import ScrollTopArrow from "./components/ScrollTopArrow";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import "./App.css";
 import RecipeListing from "./components/RecipeListing/RecipeListing";
 import RecipeCard from "./components/RecipeCard/RecipeCard";
 

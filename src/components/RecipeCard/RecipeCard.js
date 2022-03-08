@@ -17,7 +17,6 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import Button from "@mui/material/Button";
 
@@ -54,7 +53,11 @@ function RecipeCard({ recipe }) {
             R
           </Avatar>
         }
-        title={<h4 className="recipeCard-heading">{truncate(recipe.recipe.label, 25)}</h4>}
+        title={
+          <h4 className="recipeCard-heading">
+            {truncate(recipe.recipe.label, 25)}
+          </h4>
+        }
         subheader={
           <span className="recipeCard-calories">
             <DirectionsRunIcon />
@@ -74,9 +77,9 @@ function RecipeCard({ recipe }) {
         </Button>
       </CardContent>
       <CardActions disableSpacing>
-        <AddFavorites recipe={recipe.recipe}/>
+        <AddFavorites recipe={recipe.recipe} />
         <IconButton aria-label="share">
-          <ShareIcon className="recipeCard-icon"/>
+          <ShareIcon className="recipeCard-icon" />
         </IconButton>
         <ExpandMore
           expand={expanded}
@@ -84,7 +87,7 @@ function RecipeCard({ recipe }) {
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon className="recipeCard-icon"/>
+          <ExpandMoreIcon className="recipeCard-icon" />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>

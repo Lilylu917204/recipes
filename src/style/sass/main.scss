@@ -15,10 +15,19 @@
 @import "./components/scrollTop";
 @import "./components/button";
 @import "./components/favorite";
+@import "./components/form";
+@import "./components/icon";
+@import "./components/banner";
+@import "./components/recipeCard";
+@import "./components/sidebar";
 
+// layout
+@import "./layout/home";
+@import "./layout/footer";
+@import "./layout/header";
 
 // pages
 
-@import "./pages/home";
 @import "./pages/recipeFav";
+@import "./pages/recipeDetail";
 @import "./pages/pnf";

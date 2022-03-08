@@ -5,11 +5,15 @@ import { Link, useHistory } from "react-router-dom";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Search from "../Search";
+import Sidebar from "../Sidebar";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Header() {
   const [showNavBar, setShowNavBar] = useState(false);
+
   // const dispatch = useDispatch();
   // const history = useHistory();
 
@@ -48,6 +52,22 @@ function Header() {
     };
   }, []);
 
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
+
+  const openMenu = (
+    <div className="icon menu-btn">
+      <MenuIcon fontSize="large" onClick={showSidebar} />
+    </div>
+  );
+
+  const closeMenu = (
+    <div className="icon cancel-btn">
+      <CloseIcon fontSize="large" onClick={showSidebar} />
+    </div>
+  );
+
   return (
     <nav className={`navbar ${showNavBar && "nav__black"}`}>
       <div className="header">
@@ -55,9 +75,9 @@ function Header() {
           <Link to="/recipe">Recipes</Link>
         </div>
         <ul className="menu-list">
-          <div className="icon cancel-btn">
-            <i className="fas fa-times"></i>
-          </div>
+          <li className="icon cancel-btn">
+            {/* <CloseIcon fontSize="large" /> */}
+          </li>
           <li>
             <Search />{" "}
             {/* <form
@@ -88,9 +108,8 @@ function Header() {
             </Link>
           </li>
         </ul>
-        <div className="icon menu-btn">
-          <i className="fas fa-bars"></i>
-        </div>
+        <Sidebar />
+        {/* {sidebar ? <Sidebar closeMenu={closeMenu} /> : openMenu} */}
       </div>
     </nav>
   );
