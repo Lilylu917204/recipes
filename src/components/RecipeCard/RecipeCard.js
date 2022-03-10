@@ -32,11 +32,11 @@ const ExpandMore = styled((props) => {
 }));
 
 function RecipeCard({ recipe }) {
-  const dataUrl = recipe.recipe.uri;
+  const dataUrl = recipe.uri;
 
   const recipeId = dataUrl.split(/([_])/)[2];
 
-  const meals = recipe.recipe.mealType[0].split(/([/])/)[0];
+  const meals = recipe.mealType[0].split(/([/])/)[0];
 
   const [expanded, setExpanded] = useState(false);
 
@@ -54,22 +54,20 @@ function RecipeCard({ recipe }) {
           </Avatar>
         }
         title={
-          <h4 className="recipeCard-heading">
-            {truncate(recipe.recipe.label, 25)}
-          </h4>
+          <h4 className="recipeCard-heading">{truncate(recipe.label, 25)}</h4>
         }
         subheader={
           <span className="recipeCard-calories">
             <DirectionsRunIcon />
-            {`${prettyPrintNum(recipe.recipe.calories)}`}
+            {`${prettyPrintNum(recipe.calories)}`}
           </span>
         }
       />
       <CardMedia
         component="img"
         height="194"
-        image={recipe.recipe.image}
-        alt={recipe.recipe.label}
+        image={recipe.image}
+        alt={recipe.label}
       />
       <CardContent>
         <Button variant="contained">
@@ -77,7 +75,7 @@ function RecipeCard({ recipe }) {
         </Button>
       </CardContent>
       <CardActions disableSpacing>
-        <AddFavorites recipe={recipe.recipe} />
+        <AddFavorites recipe={recipe} />
         <IconButton aria-label="share">
           <ShareIcon className="recipeCard-icon" />
         </IconButton>
@@ -95,7 +93,7 @@ function RecipeCard({ recipe }) {
           <Typography paragraph variant="h4" sx={{ textAlign: "center" }}>
             Ingredients:
           </Typography>
-          {recipe.recipe.ingredients.map((ing, index) => {
+          {recipe.ingredients.map((ing, index) => {
             return (
               <Typography paragraph variant="h5" key={index}>
                 {ing.text}

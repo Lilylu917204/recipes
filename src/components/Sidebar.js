@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { sidebarData } from "../common/data";
+import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -9,39 +10,31 @@ const Sidebar = () => {
 
   const showSidebar = () => {
     setSidebar(!sidebar);
-    console.log(sidebar);
   };
 
   const openMenu = (
-    <div className=" icon menu-btn">
-      <MenuIcon fontSize="large" onClick={showSidebar} />
-    </div>
+    <IconButton className=" icon menu-btn">
+      <MenuIcon className="menu-icon" fontSize="large" onClick={showSidebar} />
+    </IconButton>
   );
 
   const closeMenu = (
-    <div className=" icon cancel-btn">
-      <CloseIcon fontSize="large" />
-    </div>
+    <IconButton className="menu-icon icon cancel-btn">
+      <CloseIcon
+        className="remove-icon"
+        fontSize="large"
+        onClick={showSidebar}
+      />
+    </IconButton>
   );
 
   return (
     <div className="sidebar">
       <div className="sidebar__menu">
-        <Link to="#">
-          <MenuIcon
-            className="menu-icon menu-bars"
-            fontSize="large"
-            onClick={showSidebar}
-          />
-        </Link>
+        <Link to="#">{sidebar ? closeMenu : openMenu}</Link>
       </div>
       <nav className={sidebar ? "sidebar__nav active" : "sidebar__nav"}>
-        <ul className="sidebar__list" onClick={showSidebar}>
-          <li className="sidebar__toggle">
-            <Link to="#" className="menu-bars">
-              <CloseIcon className="menu-icon  remove-icon" fontSize="large" />
-            </Link>
-          </li>
+        <ul className="sidebar__list">
           {sidebarData.map((item, index) => {
             return (
               <li className={item.className} key={index}>

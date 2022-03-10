@@ -8,8 +8,6 @@ import Search from "../Search";
 import Sidebar from "../Sidebar";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
 
 function Header() {
   const [showNavBar, setShowNavBar] = useState(false);
@@ -52,33 +50,16 @@ function Header() {
     };
   }, []);
 
-  const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
-
-  const openMenu = (
-    <div className="icon menu-btn">
-      <MenuIcon fontSize="large" onClick={showSidebar} />
-    </div>
-  );
-
-  const closeMenu = (
-    <div className="icon cancel-btn">
-      <CloseIcon fontSize="large" onClick={showSidebar} />
-    </div>
-  );
-
   return (
-    <nav className={`navbar ${showNavBar && "nav__black"}`}>
-      <div className="header">
-        <div className="logo">
-          <Link to="/recipe">Recipes</Link>
+    <nav className={`navbar ${showNavBar && "navbar__black"}`}>
+      <div className="navbar__header">
+        <div>
+          <Link to="/recipe" className="navbar__logo">
+            Recipes
+          </Link>
         </div>
-        <ul className="menu-list">
-          <li className="icon cancel-btn">
-            {/* <CloseIcon fontSize="large" /> */}
-          </li>
-          <li>
+        <ul className="navbar__list">
+          <li className="nabar__item">
             <Search />{" "}
             {/* <form
               onSubmit={submitHandler}
@@ -97,19 +78,19 @@ function Header() {
             {/* </IconButton>
             </form>  */}
           </li>
-          <li>
-            <Link to="/recipe/favorite" title="Favorite">
+          <li className="nabar__item">
+            <Link
+              to="/recipe/favorite"
+              title="Favorite"
+              className="navbar__link"
+            >
               <IconButton aria-label="favorite list">
-                <FavoriteIcon
-                  className="headerIcon favoriteIcon"
-                  fontSize="large"
-                />
+                <FavoriteIcon className="navbar__icon" fontSize="large" />
               </IconButton>
             </Link>
           </li>
         </ul>
         <Sidebar />
-        {/* {sidebar ? <Sidebar closeMenu={closeMenu} /> : openMenu} */}
       </div>
     </nav>
   );

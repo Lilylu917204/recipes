@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import recipeApi from "../common/api/recipeApi";
 import { recipeDetailApi } from "../common/api/recipeApi";
 
-// a better way to fetch data
-
 export const fetchRecipe = createAsyncThunk(
   "recipes/fetchMealType",
   async (recipe) => {
@@ -11,25 +9,6 @@ export const fetchRecipe = createAsyncThunk(
     return data;
   }
 );
-
-// fetch multiple data using axios.all
-
-// export const fetchRecipe = createAsyncThunk("recipes/fetchRecipe", async () => {
-//   const requestOne = recipeApi.get("?mealType=Breakfast");
-//   const requestTwo = recipeApi.get("?mealType=Lunch");
-
-//   axios.all([requestOne, requestTwo]).then(
-//     axios.spread((...responses) => {
-//       const responseOne = responses[0];
-//       const responseTwo = responses[1];
-//       // use/access the results
-
-//       console.log(responseOne.data);
-//       console.log(responseTwo.data);
-//
-//     })
-//   );
-// });
 
 // export const fetchRecipe = createAsyncThunk(
 //   "recipes/fetchRecipe",
@@ -48,7 +27,6 @@ export const fetchRecipeDetail = createAsyncThunk(
     const { data } = await recipeDetailApi.get(
       `/search?app_id=b4c650bb&app_key=becf87251f5d2ddfc322260756949473&r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}`
     );
-
     return data;
   }
 );
@@ -56,6 +34,7 @@ export const fetchRecipeDetail = createAsyncThunk(
 const initialState = {
   selectRecipeDetail: {},
   recipe: {},
+  loading: false,
 };
 
 const recipeSlice = createSlice({
@@ -70,25 +49,27 @@ const recipeSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchRecipe.pending]: () => {
-      console.log("Pending");
+    [fetchRecipe.pending]: (state) => {
+      console.log("pending");
+      return { ...state, loading: true };
     },
     [fetchRecipe.rejected]: () => {
       console.log("Rejected");
     },
     [fetchRecipe.fulfilled]: (state, action) => {
-      console.log("Fetch Successfull");
-      return { ...state, recipe: action.payload };
+      console.log("success");
+      return { ...state, recipe: action.payload, loading: false };
     },
-    [fetchRecipeDetail.pending]: () => {
-      console.log("Pending");
+    [fetchRecipeDetail.pending]: (state) => {
+      console.log("pending");
+      return { ...state, loading: true };
     },
     [fetchRecipeDetail.rejected]: () => {
       console.log("Rejected");
     },
-    [fetchRecipeDetail.fulfilled]: (state, { payload }) => {
-      console.log("Fetched Successful");
-      return { ...state, selectRecipeDetail: payload };
+    [fetchRecipeDetail.fulfilled]: (state, action) => {
+      console.log("success");
+      return { ...state, selectRecipeDetail: action.payload, loading: false };
     },
   },
 });
@@ -98,5 +79,7 @@ export const { removeRecipeDetail, removeRecipe } = recipeSlice.actions;
 export const selectRecipeDetail = (state) => state.recipes.selectRecipeDetail;
 
 export const getRecipe = (state) => state.recipes.recipe;
+
+export const getLoading = (state) => state.recipes.loading;
 
 export default recipeSlice.reducer;

@@ -1,21 +1,19 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { getRecipe } from "../../features/appSlice";
+import { getRecipe, getLoading } from "../../features/appSlice";
 import { useSelector, useDispatch } from "react-redux";
 import RecipeCard from "../RecipeCard/RecipeCard";
+import SkeletonList from "../skeletons/SkeletonList";
 
 function RecipeListing({ pageNumber, setPageNumber }) {
   const recipeData = useSelector(getRecipe);
+  const loading = useSelector(getLoading);
 
   const recipe = recipeData.hits;
 
   const displayRecipes = (recipe || []).map((recipe, index) => {
-    return <RecipeCard key={index} recipe={recipe} />;
+    return <RecipeCard key={index} recipe={recipe.recipe} />;
   });
-
-  // const { page } = useParams();
-
-  // const p = parseInt(page, 10);
 
   const PrePageRender = (e) => {
     e.preventDefault();
@@ -29,15 +27,30 @@ function RecipeListing({ pageNumber, setPageNumber }) {
 
   return (
     <div>
-      <div className="recipeList">{displayRecipes}</div>
-      <button onClick={PrePageRender}>
-        Previous
-        {/* <Link to={`/page/${pageNumber - 1}`}>Previous</Link> */}
-      </button>
-      <button onClick={nextPageRender}>
-        Next
-        {/* <Link to={`/page/${pageNumber + 1}`}>Next</Link> */}
-      </button>
+      <div className="recipeList">
+        {loading
+          ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
+              return <SkeletonList key={i} />;
+            })
+          : displayRecipes}
+      </div>
+      <div className="recipeList"></div>
+      <div className="recipeList__btn u-center-text">
+        <Link
+          to="#"
+          className="recipeList__link btn-text"
+          onClick={PrePageRender}
+        >
+          <span>Previous</span>
+        </Link>
+        <Link
+          to="#"
+          className="recipeList__link  btn-text"
+          onClick={nextPageRender}
+        >
+          <span>Next</span>
+        </Link>
+      </div>
     </div>
   );
 }
