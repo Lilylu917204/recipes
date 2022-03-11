@@ -1,43 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { fetchRecipe } from "../../features/appSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import Search from "../Search";
+import { Link } from "react-router-dom";
+import Search from "./Search";
 import Sidebar from "../Sidebar";
-import IconButton from "@mui/material/IconButton";
+import { MaterialIcon } from "../../common/materialUI";
 import SearchIcon from "@mui/icons-material/Search";
 
 function Header() {
   const [showNavBar, setShowNavBar] = useState(false);
-
-  // const dispatch = useDispatch();
-  // const history = useHistory();
-
-  // const [term, setTerm] = useState("");
-  // const data = {
-  //   params: {
-  //     q: term,
-  //   },
-  // };
-
-  // useEffect(() => {
-  //   const params = new URLSearchParams();
-  //   if (term) {
-  //     params.append("label", term);
-  //   } else {
-  //     params.delete("label");
-  //   }
-  //   history.push({ pathname: "/search", search: params.toString() });
-  // }, [term, history]);
-
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   if (term === "") return alert("Please enter recipe");
-  //   dispatch(fetchRecipe(data));
-  //   setTerm("");
-  // };
 
   const transitionNavBar = () => {
     window.scrollY > 100 ? setShowNavBar(true) : setShowNavBar(false);
@@ -60,23 +29,7 @@ function Header() {
         </div>
         <ul className="navbar__list">
           <li className="nabar__item">
-            <Search />{" "}
-            {/* <form
-              onSubmit={submitHandler}
-              title="Search"
-              className="headerForm"
-            >
-              <input
-                value={term}
-                type="text"
-                placeholder="Search Recipes..."
-                onChange={(e) => setTerm(e.target.value)}
-              />
-              <IconButton aria-label="search list" type="submit">
-                <SearchIcon className="headerIcon searchIcon" />
-                {/* {term ? <Redirect to="/breakfast" /> : null} */}
-            {/* </IconButton>
-            </form>  */}
+            <Search />
           </li>
           <li className="nabar__item">
             <Link
@@ -84,9 +37,12 @@ function Header() {
               title="Favorite"
               className="navbar__link"
             >
-              <IconButton aria-label="favorite list">
-                <FavoriteIcon className="navbar__icon" fontSize="large" />
-              </IconButton>
+              <MaterialIcon.IconButton aria-label="favorite list">
+                <MaterialIcon.FavoriteIcon
+                  className="navbar__icon"
+                  fontSize="large"
+                />
+              </MaterialIcon.IconButton>
             </Link>
           </li>
         </ul>

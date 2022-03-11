@@ -1,28 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AddFavorites from "../AddFavorites";
-import { prettyPrintNum, truncate } from "../util";
+import { prettyPrintNum, truncate } from "../../common/util";
+import {
+  MaterialCard,
+  MaterialIcon,
+  MaterialButton,
+  MaterialStyled,
+} from "../../common/materialUI";
 
-// material ui
-import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
-import Button from "@mui/material/Button";
-
-const ExpandMore = styled((props) => {
+const ExpandMore = MaterialStyled.styled((props) => {
   const { expand, ...other } = props;
-  return <IconButton {...other} />;
+  return <MaterialIcon.IconButton {...other} />;
 })(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
   marginLeft: "auto",
@@ -45,64 +34,69 @@ function RecipeCard({ recipe }) {
   };
 
   return (
-    <Card className="recipeCard" sx={{ width: 340 }}>
-      <CardHeader
-        sx={{ textAlign: "center" }}
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        title={
-          <h4 className="recipeCard-heading">{truncate(recipe.label, 25)}</h4>
-        }
-        subheader={
-          <span className="recipeCard-calories">
-            <DirectionsRunIcon />
-            {`${prettyPrintNum(recipe.calories)}`}
-          </span>
-        }
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        image={recipe.image}
-        alt={recipe.label}
-      />
-      <CardContent>
-        <Button variant="contained">
-          <Link to={`/recipe/${meals}/${recipeId}`}>Get Recipe</Link>
-        </Button>
-      </CardContent>
-      <CardActions disableSpacing>
-        <AddFavorites recipe={recipe} />
-        <IconButton aria-label="share">
-          <ShareIcon className="recipeCard-icon" />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpand}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon className="recipeCard-icon" />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph variant="h4" sx={{ textAlign: "center" }}>
-            Ingredients:
-          </Typography>
-          {recipe.ingredients.map((ing, index) => {
-            return (
-              <Typography paragraph variant="h5" key={index}>
-                {ing.text}
-              </Typography>
-            );
-          })}
-        </CardContent>
-      </Collapse>
-    </Card>
+    <div className="recipeCard">
+      <MaterialCard.Card className="recipeCard__cards" sx={{ width: 340 }}>
+        <MaterialCard.CardHeader
+          sx={{ textAlign: "center" }}
+          title={
+            <h4 className="recipeCard-heading u-margin-bottom-small">
+              {truncate(recipe.label, 20)}
+            </h4>
+          }
+          subheader={
+            <span className="paragraph">
+              <MaterialIcon.DirectionsRunIcon />
+              {`${prettyPrintNum(recipe.calories)}`}
+            </span>
+          }
+        />
+        <MaterialCard.CardMedia
+          component="img"
+          height="194"
+          image={recipe.image}
+          alt={recipe.label}
+        />
+        <MaterialCard.CardContent>
+          <MaterialButton.Button variant="contained">
+            <Link
+              to={`/recipe/${meals}/${recipeId}`}
+              className="recipeCard__link"
+            >
+              Get Recipe
+            </Link>
+          </MaterialButton.Button>
+        </MaterialCard.CardContent>
+
+        <MaterialCard.CardActions disableSpacing>
+          <AddFavorites recipe={recipe} />
+          <MaterialIcon.IconButton aria-label="share">
+            <MaterialIcon.ShareIcon className="recipeCard-icon" />
+          </MaterialIcon.IconButton>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpand}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <MaterialIcon.ExpandMoreIcon className="recipeCard-icon" />
+          </ExpandMore>
+        </MaterialCard.CardActions>
+        <MaterialCard.Collapse in={expanded} timeout="auto" unmountOnExit>
+          <MaterialCard.CardContent>
+            <div className="heading-tertiary u-center-text u-margin-bottom-medium">
+              Ingredients:
+            </div>
+            {recipe.ingredients.map((ing) => {
+              return (
+                <div key={ing.uri} className="paragraph">
+                  {ing.text}
+                </div>
+              );
+            })}
+          </MaterialCard.CardContent>
+        </MaterialCard.Collapse>
+      </MaterialCard.Card>
+    </div>
   );
 }
 

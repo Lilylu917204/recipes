@@ -1,14 +1,13 @@
 import React from "react";
 import SkeletonElement from "./SkeletonElement";
 import Shimmer from "./Shimmer";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+import { MaterialCard } from "../../common/materialUI";
 
 const SkeletonList = () => {
   return (
     <div className="recipeDetail">
-      <Card className="recipeDetail__left">
-        <div className="info">
+      <MaterialCard.Card className="recipeDetail__left">
+        <MaterialCard.CardContent className="info">
           <SkeletonElement type="title2" />
           <SkeletonElement type="title2" />
           <div className="skeleton-info">
@@ -21,11 +20,11 @@ const SkeletonList = () => {
               <SkeletonElement type="text" />
             </div>
           </div>
-        </div>
-      </Card>
+        </MaterialCard.CardContent>
+      </MaterialCard.Card>
 
-      <Card className="recipeDetail__right">
-        <CardContent>
+      <MaterialCard.Card className="recipeDetail__right">
+        <MaterialCard.CardContent>
           <SkeletonElement type="title2" />
           <div className="skeleton-ingredient">
             <div>
@@ -67,8 +66,8 @@ const SkeletonList = () => {
               <SkeletonElement type="text" />
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </MaterialCard.CardContent>
+      </MaterialCard.Card>
       <Shimmer />
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import IconButton from "@mui/material/IconButton";
+import { MaterialIcon } from "../common/materialUI";
+
 import { useDispatch } from "react-redux";
 import { addItemToFavorite } from "../features/favoriteSlice";
 
@@ -15,12 +15,15 @@ const AddFavorites = ({ recipe }) => {
 
   return (
     <>
-      <IconButton
+      <MaterialIcon.IconButton
         onClick={() => handleAddToFavorite(recipe)}
         aria-label="add to favorites"
       >
-        <FavoriteIcon className={addFavorites ? "addFavorites--red" : ""} className="recipeCard-icon" />
-      </IconButton>
+        <MaterialIcon.FavoriteIcon
+          className={addFavorites ? "addFavorites--red" : ""}
+          className="recipeCard-icon"
+        />
+      </MaterialIcon.IconButton>
     </>
   );
 };

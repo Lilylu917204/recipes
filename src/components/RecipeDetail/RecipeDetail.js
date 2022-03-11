@@ -7,9 +7,8 @@ import {
   getLoading,
 } from "../../features/appSlice";
 import { useParams } from "react-router-dom";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import { prettyPrintNum } from "../util";
+import { MaterialCard } from "../../common/materialUI";
+import { prettyPrintNum } from "../../common/util";
 import SkeletonDetail from "../skeletons/SkeletonDetail";
 
 function RecipeDetail() {
@@ -36,8 +35,8 @@ function RecipeDetail() {
         Object.values(selectRecipe).map((recipe) => {
           return (
             <div key={recipe.label} className="recipeDetail">
-              <Card className="recipeDetail__left">
-                <CardContent>
+              <MaterialCard.Card className="recipeDetail__left">
+                <MaterialCard.CardContent>
                   <div className="info">
                     <div className="info__top u-margin-bottom-medium u-center-text">
                       <h2 className="heading-secondary u-border-bottom">
@@ -65,10 +64,10 @@ function RecipeDetail() {
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-              <Card className="recipeDetail__right">
-                <CardContent>
+                </MaterialCard.CardContent>
+              </MaterialCard.Card>
+              <MaterialCard.Card className="recipeDetail__right">
+                <MaterialCard.CardContent>
                   <div className="ingredient">
                     <div className=" ingredient__heading u-center-text u-margin-bottom-medium u-border-bottom">
                       <span className="heading-tertiary">ingredients</span>
@@ -89,8 +88,8 @@ function RecipeDetail() {
                       })}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </MaterialCard.CardContent>
+              </MaterialCard.Card>
             </div>
           );
         })

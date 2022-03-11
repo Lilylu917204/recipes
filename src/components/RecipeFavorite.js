@@ -7,9 +7,7 @@ import {
 } from "../features/favoriteSlice";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import { prettyPrintNum } from "./util";
+import { prettyPrintNum } from "../common/util";
 
 const RecipeFavorite = () => {
   const dispatch = useDispatch();

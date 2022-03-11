@@ -1,27 +1,27 @@
 import React from "react";
 import SkeletonElement from "./SkeletonElement";
 import Shimmer from "./Shimmer";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
+import { MaterialCard } from "../../common/materialUI";
 
 const SkeletonList = () => {
   return (
-    <Card
-      className="recipeCard skeleton__wrapper"
-      sx={{ width: 340, height: 393 }}
-    >
-      <CardHeader
-        sx={{ textAlign: "center" }}
-        avatar={<SkeletonElement type="avatar" />}
-        title={<SkeletonElement type="title" />}
-        subheader={<SkeletonElement type="title" />}
-      />
-      <SkeletonElement type="pic" />
-      <SkeletonElement type="text" />
-      <SkeletonElement type="text" />
-      <SkeletonElement type="text" />
-      <Shimmer />
-    </Card>
+    <div className="recipeCard">
+      <MaterialCard.Card
+        className="recipeCard__cards skeleton__wrapper"
+        sx={{ width: 340, height: 393 }}
+      >
+        <MaterialCard.CardHeader
+          sx={{ textAlign: "center" }}
+          title={<SkeletonElement type="title" />}
+          subheader={<SkeletonElement type="title" />}
+        />
+        <SkeletonElement type="pic" />
+        <SkeletonElement type="text" />
+        <SkeletonElement type="text" />
+        <SkeletonElement type="text" />
+        <Shimmer />
+      </MaterialCard.Card>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getRecipe, getLoading } from "../../features/appSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import SkeletonList from "../skeletons/SkeletonList";
 
@@ -34,7 +34,6 @@ function RecipeListing({ pageNumber, setPageNumber }) {
             })
           : displayRecipes}
       </div>
-      <div className="recipeList"></div>
       <div className="recipeList__btn u-center-text">
         <Link
           to="#"
