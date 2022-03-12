@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import AddFavorites from "../AddFavorites";
-import { prettyPrintNum, truncate } from "../../common/util";
+import AddFavorite from "./AddFavorite";
+import { prettyPrintNum, truncate } from "../../../common/util";
 import {
   MaterialCard,
   MaterialIcon,
   MaterialButton,
   MaterialStyled,
-} from "../../common/materialUI";
+} from "../../../common/materialUI";
 
 const ExpandMore = MaterialStyled.styled((props) => {
   const { expand, ...other } = props;
@@ -66,9 +66,8 @@ function RecipeCard({ recipe }) {
             </Link>
           </MaterialButton.Button>
         </MaterialCard.CardContent>
-
         <MaterialCard.CardActions disableSpacing>
-          <AddFavorites recipe={recipe} />
+          <AddFavorite recipe={recipe} />
           <MaterialIcon.IconButton aria-label="share">
             <MaterialIcon.ShareIcon className="recipeCard-icon" />
           </MaterialIcon.IconButton>

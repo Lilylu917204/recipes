@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MaterialIcon } from "../common/materialUI";
 
 const ScrollTopArrow = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -19,12 +20,12 @@ const ScrollTopArrow = () => {
 
   return (
     <div
-      title="Scroll To Top"
+      title="Back to Top"
       className="scrollTop"
       onClick={scrollTop}
       style={{ display: showScroll ? "flex" : "none" }}
     >
-      <i class="fas fa-chevron-up"></i>
+      <MaterialIcon.KeyboardArrowUpOutlinedIcon className="scrollTop__icon" />
     </div>
   );
 };

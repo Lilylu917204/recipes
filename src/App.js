@@ -1,33 +1,28 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-import Home from "./components/Home/Home";
-import RecipeDetail from "./components/RecipeDetail/RecipeDetail";
-import PageNotFound from "./components/PageNotFound/PageNotFound";
-import Header from "./components/Header/Header";
+import Navigation from "./components/Header/Navigation";
+import Home from "./components/Pages/Home/Home";
+import MealType from "./components/Pages/Home/MealType";
+import RecipeDetail from "./components/Pages/Detail/RecipeDetail";
+import PageNotFound from "./components/Pages/PNF/PageNotFound";
+import RecipeFavorite from "./components/Pages/Favorite/RecipeFavorite";
 import Footer from "./components/Footer/Footer";
-import MealType from "./components/MealType/MealType";
-
-import RecipeFavorite from "./components/RecipeFavorite";
-import ScrollTopArrow from "./components/ScrollTopArrow";
-
+import ScrollTop from "./components/ScrollTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import RecipeListing from "./components/RecipeListing/RecipeListing";
-import RecipeCard from "./components/RecipeCard/RecipeCard";
 
 function App() {
   return (
     <div className="app">
       <Router>
         <ToastContainer />
-        <Header />
-        <ScrollTopArrow />
+        <Navigation />
+        <ScrollTop />
         <div className="container">
           <Routes>
             <Route path="/recipe/favorite" element={<RecipeFavorite />} />

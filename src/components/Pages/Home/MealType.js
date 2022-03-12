@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { fetchRecipe, removeRecipe } from "../../features/appSlice";
-import RecipeListing from "../RecipeListing/RecipeListing";
+import React from "react";
+import RecipeListing from "../List/RecipeListing";
 import { useParams } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
+import useFetch from "../../../hooks/useFetch";
 
 function MealType() {
   let { mealType } = useParams();

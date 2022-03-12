@@ -8,21 +8,18 @@ const useFetch = (term) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      dispatch(
-        fetchRecipe({
-          params: {
-            q: term,
-            from: pageNumber,
-            to: pageNumber + 10,
-          },
-        })
-      );
-    }, 5000);
+    dispatch(
+      fetchRecipe({
+        params: {
+          q: term,
+          from: pageNumber,
+          to: pageNumber + 10,
+        },
+      })
+    );
 
     return () => {
       dispatch(removeRecipe());
-      clearTimeout(timer);
     };
   }, [term, pageNumber, dispatch]);
 

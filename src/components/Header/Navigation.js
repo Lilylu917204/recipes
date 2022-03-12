@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Search from "./Search";
-import Sidebar from "../Sidebar";
+import Sidebar from "./Sidebar";
 import { MaterialIcon } from "../../common/materialUI";
-import SearchIcon from "@mui/icons-material/Search";
 
 function Header() {
   const [showNavBar, setShowNavBar] = useState(false);

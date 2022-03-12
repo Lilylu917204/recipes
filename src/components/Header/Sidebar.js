@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { sidebarData } from "../common/data";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+import { sidebarData } from "../../common/data";
+import { MaterialIcon } from "../../common/materialUI";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -13,19 +11,23 @@ const Sidebar = () => {
   };
 
   const openMenu = (
-    <IconButton className=" icon menu-btn">
-      <MenuIcon className="menu-icon" fontSize="large" onClick={showSidebar} />
-    </IconButton>
+    <MaterialIcon.IconButton className=" icon menu-btn">
+      <MaterialIcon.MenuIcon
+        className="menu-icon"
+        fontSize="large"
+        onClick={showSidebar}
+      />
+    </MaterialIcon.IconButton>
   );
 
   const closeMenu = (
-    <IconButton className="menu-icon icon cancel-btn">
-      <CloseIcon
+    <MaterialIcon.IconButton className="menu-icon icon cancel-btn">
+      <MaterialIcon.CloseIcon
         className="remove-icon"
         fontSize="large"
         onClick={showSidebar}
       />
-    </IconButton>
+    </MaterialIcon.IconButton>
   );
 
   return (

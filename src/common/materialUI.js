@@ -18,6 +18,11 @@ import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import RamenDiningIcon from "@mui/icons-material/RamenDining";
 import CookieIcon from "@mui/icons-material/Cookie";
 import WineBarIcon from "@mui/icons-material/WineBar";
+import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import SearchIcon from "@mui/icons-material/Search";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 /* Styled */
 import { styled } from "@mui/material/styles";
@@ -46,6 +51,11 @@ export const MaterialIcon = {
   RamenDiningIcon,
   CookieIcon,
   WineBarIcon,
+  KeyboardArrowUpOutlinedIcon,
+  MenuIcon,
+  CloseIcon,
+  SearchIcon,
+  DeleteIcon,
 };
 
 export const MaterialButton = { Button };

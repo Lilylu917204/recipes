@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import {
   getFavoriteItems,
   removeFromFavorite,
-} from "../features/favoriteSlice";
-import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { prettyPrintNum } from "../common/util";
+} from "../../../features/favoriteSlice";
+import { MaterialIcon } from "../../../common/materialUI";
+import { prettyPrintNum } from "../../../common/util";
 
 const RecipeFavorite = () => {
   const dispatch = useDispatch();
@@ -63,7 +62,7 @@ const RecipeFavorite = () => {
                     </li>
                   </Link>
                   <li className="favorite__item--calories">
-                    <DirectionsRunIcon fontSize="large" />
+                    <MaterialIcon.DirectionsRunIcon fontSize="large" />
                     <span>{`${prettyPrintNum(fav.calories)}`}</span>
                   </li>
                   <li>
@@ -72,7 +71,7 @@ const RecipeFavorite = () => {
                     })}
                   </li>
                   <li className="remove">
-                    <DeleteIcon
+                    <MaterialIcon.DeleteIcon
                       style={{ fontSize: 30 }}
                       className="remove-icon"
                       onClick={() => handleRemoveFromFav(fav)}

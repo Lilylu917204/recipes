@@ -4,12 +4,13 @@ import {
   createSearchParams,
   useNavigate,
 } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   let searchTerm = searchParams.get("term") || "";
-
   const navigate = useNavigate();
+  useFetch(searchTerm);
 
   const handleEvent = (e) => {
     const term = e.target.value;

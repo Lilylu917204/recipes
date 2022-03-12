@@ -5,11 +5,11 @@ import {
   fetchRecipeDetail,
   removeRecipeDetail,
   getLoading,
-} from "../../features/appSlice";
+} from "../../../features/appSlice";
 import { useParams } from "react-router-dom";
-import { MaterialCard } from "../../common/materialUI";
-import { prettyPrintNum } from "../../common/util";
-import SkeletonDetail from "../skeletons/SkeletonDetail";
+import { MaterialCard } from "../../../common/materialUI";
+import { prettyPrintNum } from "../../../common/util";
+import SkeletonDetail from "../../skeletons/SkeletonDetail";
 
 function RecipeDetail() {
   let { recipeId } = useParams();
