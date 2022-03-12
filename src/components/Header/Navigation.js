@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Search from "./Search";
-import Sidebar from "./Sidebar";
-import { MaterialIcon } from "../../common/materialUI";
+import Search from "components/Header/Search";
+import Sidebar from "components/Header/Sidebar";
+import { MaterialIcon } from "common/materialUI";
 
 function Header() {
   const [showNavBar, setShowNavBar] = useState(false);

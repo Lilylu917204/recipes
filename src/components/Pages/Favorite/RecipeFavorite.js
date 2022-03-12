@@ -1,12 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  getFavoriteItems,
-  removeFromFavorite,
-} from "../../../features/favoriteSlice";
-import { MaterialIcon } from "../../../common/materialUI";
-import { prettyPrintNum } from "../../../common/util";
+import { getFavoriteItems, removeFromFavorite } from "features/favoriteSlice";
+import { MaterialIcon } from "common/materialUI";
+import { prettyPrintNum } from "common/util";
 
 const RecipeFavorite = () => {
   const dispatch = useDispatch();

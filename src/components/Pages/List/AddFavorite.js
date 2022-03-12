@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { MaterialIcon } from "../../../common/materialUI";
 import { useDispatch } from "react-redux";
-import { addItemToFavorite } from "../../../features/favoriteSlice";
+import { MaterialIcon } from "common/materialUI";
+import { addItemToFavorite } from "features/favoriteSlice";
 
 const AddFavorites = ({ recipe }) => {
   const [addFavorites, setAddFavorites] = useState(false);

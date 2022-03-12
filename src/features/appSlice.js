@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import recipeApi from "../common/api/recipeApi";
-import { recipeDetailApi } from "../common/api/recipeApi";
+import recipeApi from "common/api/recipeApi";
+import { recipeDetailApi } from "common/api/recipeApi";
 
 export const fetchRecipe = createAsyncThunk(
   "recipes/fetchMealType",

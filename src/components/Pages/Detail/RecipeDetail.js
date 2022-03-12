@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import {
   selectRecipeDetail,
   fetchRecipeDetail,
   removeRecipeDetail,
   getLoading,
-} from "../../../features/appSlice";
-import { useParams } from "react-router-dom";
-import { MaterialCard } from "../../../common/materialUI";
-import { prettyPrintNum } from "../../../common/util";
-import SkeletonDetail from "../../skeletons/SkeletonDetail";
+} from "features/appSlice";
+import { MaterialCard } from "common/materialUI";
+import { prettyPrintNum } from "common/util";
+import SkeletonDetail from "components/skeletons/SkeletonDetail";
 
 function RecipeDetail() {
   let { recipeId } = useParams();

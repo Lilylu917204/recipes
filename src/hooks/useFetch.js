@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchRecipe, removeRecipe } from "../features/appSlice";
+import { fetchRecipe, removeRecipe } from "features/appSlice";
 
 const useFetch = (term) => {
   const [pageNumber, setPageNumber] = useState(0);

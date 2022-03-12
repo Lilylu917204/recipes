@@ -4,7 +4,7 @@ import {
   createSearchParams,
   useNavigate,
 } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "hooks/useFetch";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { getRecipe, getLoading } from "../../../features/appSlice";
 import { useSelector } from "react-redux";
-import RecipeCard from "./RecipeCard";
-import SkeletonList from "../../skeletons/SkeletonList";
+import { Link } from "react-router-dom";
+import { getRecipe, getLoading } from "features/appSlice";
+import RecipeCard from "components/Pages/List/RecipeCard";
+import SkeletonList from "components/skeletons/SkeletonList";
 
 function RecipeListing({ pageNumber, setPageNumber }) {
   const [currentPage, setCurrentPage] = useState(0);

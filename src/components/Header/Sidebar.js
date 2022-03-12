@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { sidebarData } from "../../common/data";
-import { MaterialIcon } from "../../common/materialUI";
+import { sidebarData } from "common/data";
+import { MaterialIcon } from "common/materialUI";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);

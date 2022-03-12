@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MaterialIcon } from "../common/materialUI";
+import { MaterialIcon } from "common/materialUI";
 
 const ScrollTopArrow = () => {
   const [showScroll, setShowScroll] = useState(false);

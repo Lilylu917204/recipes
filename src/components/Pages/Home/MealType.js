@@ -1,7 +1,7 @@
 import React from "react";
-import RecipeListing from "../List/RecipeListing";
 import { useParams } from "react-router-dom";
-import useFetch from "../../../hooks/useFetch";
+import RecipeListing from "../List/RecipeListing";
+import useFetch from "hooks/useFetch";
 
 function MealType() {
   let { mealType } = useParams();

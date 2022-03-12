@@ -5,14 +5,14 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Navigation from "./components/Header/Navigation";
-import Home from "./components/Pages/Home/Home";
-import MealType from "./components/Pages/Home/MealType";
-import RecipeDetail from "./components/Pages/Detail/RecipeDetail";
-import PageNotFound from "./components/Pages/PNF/PageNotFound";
-import RecipeFavorite from "./components/Pages/Favorite/RecipeFavorite";
-import Footer from "./components/Footer/Footer";
-import ScrollTop from "./components/ScrollTop";
+import Navigation from "components/Header/Navigation";
+import Home from "components/Pages/Home/Home";
+import MealType from "components/Pages/Home/MealType";
+import RecipeDetail from "components/Pages/Detail/RecipeDetail";
+import PageNotFound from "components/Pages/PNF/PageNotFound";
+import RecipeFavorite from "components/Pages/Favorite/RecipeFavorite";
+import Footer from "components/Footer/Footer";
+import ScrollTop from "components/ScrollTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

@@ -1,7 +1,7 @@
 import React from "react";
-import SkeletonElement from "./SkeletonElement";
-import Shimmer from "./Shimmer";
-import { MaterialCard } from "../../common/materialUI";
+import SkeletonElement from "components/skeletons/SkeletonElement";
+import Shimmer from "components/skeletons/Shimmer";
+import { MaterialCard } from "common/materialUI";
 
 const SkeletonList = () => {
   return (

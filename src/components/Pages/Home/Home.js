@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { mealTypeData } from "../../../common/data";
+import { mealTypeData } from "common/data";
 
 function Home() {
   const [meals, setMeals] = useState("");
