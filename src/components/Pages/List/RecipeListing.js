@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { getRecipe, getLoading } from "../../../features/appSlice";
 import { useSelector } from "react-redux";
@@ -6,6 +6,7 @@ import RecipeCard from "./RecipeCard";
 import SkeletonList from "../../skeletons/SkeletonList";
 
 function RecipeListing({ pageNumber, setPageNumber }) {
+  const [currentPage, setCurrentPage] = useState(0);
   const recipeData = useSelector(getRecipe);
   const loading = useSelector(getLoading);
 
@@ -18,16 +19,20 @@ function RecipeListing({ pageNumber, setPageNumber }) {
   const PrePageRender = (e) => {
     e.preventDefault();
     setPageNumber(pageNumber - 10);
+    setCurrentPage(currentPage - 1);
   };
 
   const nextPageRender = (e) => {
     e.preventDefault();
     setPageNumber(pageNumber + 10);
+    setCurrentPage(currentPage + 1);
   };
 
   const skeletonRender = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
     return <SkeletonList key={i} />;
   });
+
+  console.log(currentPage);
 
   return (
     <div className="recipeList">
@@ -37,13 +42,16 @@ function RecipeListing({ pageNumber, setPageNumber }) {
         <>
           <div className="recipeList__list">{displayRecipes}</div>
           <div className="recipeList__btn u-center-text">
-            <Link
-              to="#"
-              className="recipeList__link btn-text"
-              onClick={PrePageRender}
-            >
-              <span>Previous</span>
-            </Link>
+            {currentPage > 0 && (
+              <Link
+                to="#"
+                className="recipeList__link btn-text"
+                onClick={PrePageRender}
+              >
+                <span>Previous</span>
+              </Link>
+            )}
+            <div className="heading-tertiary">{currentPage + 1}</div>
             <Link
               to="#"
               className="recipeList__link  btn-text"
