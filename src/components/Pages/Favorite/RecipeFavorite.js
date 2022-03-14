@@ -19,7 +19,7 @@ const RecipeFavorite = () => {
         <h2 className="heading-secondary">My Saved Recipes</h2>
       </div>
       {favorite.length === 0 ? (
-        <div className="empty">
+        <div className="recipeFav__empty">
           <div className="u-center-text u-margin-bottom-medium">
             <h3 className="heading-tertiary">
               You have not saved any recipes recently
