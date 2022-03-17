@@ -8,6 +8,7 @@ import {
   MaterialButton,
   MaterialStyled,
 } from "common/materialUI";
+import { recipeIdSplit, recipeMealSplit } from "common/util";
 
 const ExpandMore = MaterialStyled.styled((props) => {
   const { expand, ...other } = props;
@@ -23,9 +24,9 @@ const ExpandMore = MaterialStyled.styled((props) => {
 function RecipeCard({ recipe }) {
   const dataUrl = recipe.uri;
 
-  const recipeId = dataUrl.split(/([_])/)[2];
+  const recipeId = recipeIdSplit(dataUrl);
 
-  const meals = recipe.mealType[0].split(/([/])/)[0];
+  const meals = recipeMealSplit(recipe.mealType[0]);
 
   const [expanded, setExpanded] = useState(false);
 

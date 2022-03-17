@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getFavoriteItems, removeFromFavorite } from "features/favoriteSlice";
 import { MaterialIcon } from "common/materialUI";
-import { prettyPrintNum } from "common/util";
+import { prettyPrintNum, recipeIdSplit, recipeMealSplit } from "common/util";
 
 const RecipeFavorite = () => {
   const dispatch = useDispatch();
@@ -45,9 +45,9 @@ const RecipeFavorite = () => {
                   className="favorite__item u-margin-bottom-small u-border-top"
                 >
                   <Link
-                    to={`/recipe/${fav.mealType[0].split(/([/])/)[0]}/${
-                      fav.uri.split(/([_])/)[2]
-                    }`}
+                    to={`/recipe/${recipeMealSplit(
+                      fav.mealType[0]
+                    )}/${recipeIdSplit(fav.uri)}`}
                   >
                     <li className="favorite__item--label">
                       <div className="favorite__item--label--image">
