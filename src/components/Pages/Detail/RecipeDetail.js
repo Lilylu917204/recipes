@@ -25,8 +25,6 @@ function RecipeDetail() {
     };
   }, [dispatch, recipeId]);
 
-  console.log(loading);
-
   return (
     <div>
       {loading ? (

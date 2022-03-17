@@ -27,6 +27,10 @@ function App() {
           <Routes>
             <Route path="/recipe/favorite" element={<RecipeFavorite />} />
             <Route
+              path="/recipe/recipeId/:recipeId"
+              element={<RecipeDetail />}
+            />
+            <Route
               path="/recipe/:mealType/:recipeId"
               element={<RecipeDetail />}
             />

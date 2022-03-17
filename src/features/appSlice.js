@@ -49,9 +49,9 @@ const recipeSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchRecipe.pending]: (state) => {
+    [fetchRecipe.pending]: () => {
       console.log("pending");
-      return { ...state, loading: true };
+      return { loading: true };
     },
     [fetchRecipe.rejected]: () => {
       console.log("Rejected");
@@ -60,15 +60,13 @@ const recipeSlice = createSlice({
       console.log("success");
       return { ...state, recipe: action.payload, loading: false };
     },
-    [fetchRecipeDetail.pending]: (state) => {
-      console.log("pending");
-      return { ...state, loading: true };
+    [fetchRecipeDetail.pending]: () => {
+      return { loading: true };
     },
     [fetchRecipeDetail.rejected]: () => {
       console.log("Rejected");
     },
     [fetchRecipeDetail.fulfilled]: (state, action) => {
-      console.log("success");
       return { ...state, selectRecipeDetail: action.payload, loading: false };
     },
   },

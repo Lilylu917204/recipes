@@ -9,10 +9,9 @@ function RecipeListing({ pageNumber, setPageNumber }) {
   const [currentPage, setCurrentPage] = useState(0);
   const recipeData = useSelector(getRecipe);
   const loading = useSelector(getLoading);
+  const data = recipeData?.hits;
 
-  const recipe = recipeData.hits;
-
-  const displayRecipes = (recipe || []).map(({ recipe }) => {
+  const displayRecipes = (data || []).map(({ recipe }) => {
     return <RecipeCard key={recipe.uri} recipe={recipe} />;
   });
 
@@ -32,7 +31,7 @@ function RecipeListing({ pageNumber, setPageNumber }) {
     return <SkeletonList key={i} />;
   });
 
-  console.log(currentPage);
+  console.log(loading);
 
   return (
     <div className="recipeList">
