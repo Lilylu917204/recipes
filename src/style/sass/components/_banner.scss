@@ -20,5 +20,9 @@
     top: 50%;
     left: 50%;
     white-space: nowrap;
+
+    @include respond(phone) {
+      white-space: pre-wrap;
+    }
   }
 }

@@ -17,6 +17,8 @@ function RecipeDetail() {
   const selectRecipe = useSelector(selectRecipeDetail);
   const dispatch = useDispatch();
 
+
+
   useEffect(() => {
     dispatch(fetchRecipeDetail(recipeId));
 
@@ -25,12 +27,14 @@ function RecipeDetail() {
     };
   }, [dispatch, recipeId]);
 
+  
+
   return (
     <div>
       {loading ? (
         <SkeletonDetail />
       ) : (
-        Object.values(selectRecipe).map((recipe) => {
+        selectRecipe && selectRecipe.map((recipe) => {
           return (
             <div key={recipe.label} className="recipeDetail">
               <MaterialCard.Card className="recipeDetail__left">

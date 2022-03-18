@@ -42,10 +42,9 @@ function Home() {
                       <div className="card">
                         <div className="card__side card__side--front">
                           {" "}
-                          <img
-                            className="card__side--front--img"
-                            src={type.image}
-                          />
+                          <div className="card__side--front--img">
+                            <img src={type.image} />
+                          </div>
                           <h2 className="card__side--front--heading">
                             {type.title}
                           </h2>
