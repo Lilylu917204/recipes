@@ -2,7 +2,6 @@
   margin: 3rem auto;
 
   &__titles {
-
     span:first-child {
       padding-left: 2rem;
     }
@@ -12,18 +11,16 @@
 .favorite__item {
   list-style: none;
   padding: 1rem 0;
+  &:first-child {
+    border-top: 1px solid $color-gray-light;
+  }
 
   &--label {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 2fr;
-    column-gap: 0.5rem;
-
     &--image {
       padding: 1rem;
       width: 150px;
       margin-right: 1rem;
-
+      grid-area: image;
       img {
         width: 100%;
         object-fit: contain;
@@ -36,18 +33,83 @@
     color: #5f6266;
   }
 
+  &--span {
+    grid-area: label;
+  }
+
+  &--dietLabel {
+    grid-area: dietLabel;
+  }
+
   &--calories {
     display: flex;
     align-items: center;
+    grid-area: calories;
+  }
+}
+
+.remove {
+  color: #434c5e;
+  grid-area: remove;
+
+  @include respond(phone) {
+    display: none;
+  }
+
+  &-icon:hover {
+    cursor: pointer;
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    color: $color-black;
+  }
+
+  &-mobile {
+    display: none;
+    grid-area: remove;
+
+    button {
+      padding: 1rem;
+      text-transform: uppercase;
+      background-color: $color-primary;
+      color: $color-gray-dark-2;
+      border-radius: 4px;
+      border: 1px solid $color-gray-dark-2;
+      font-size: 1.4rem;
+      text-align: center;
+      width: 100%;
+
+      &:hover {
+        background-color: $color-gray-dark-3;
+        color: $color-white;
+      }
+    }
+
+    @include respond(phone) {
+      display: block;
+    }
   }
 }
 
 // grid
 
-.favorite__item,
-.favorite__titles {
-  display: grid;
+.favorite__item {
+  justify-content: center;
   align-items: center;
-  grid-template-columns: 3fr 1fr 1fr 1fr;
-  column-gap: 0.5rem;
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 2fr 1fr 1fr 0.5fr;
+  grid-template-areas: "image label calories dietLabel remove";
+
+  @include respond(phone) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 0.4fr 0.5fr;
+    grid-gap: 1rem;
+    grid-template-areas:
+      "image label"
+      "calories dietLabel"
+      "remove remove";
+  }
 }

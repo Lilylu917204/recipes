@@ -31,10 +31,8 @@ const RecipeFavorite = () => {
         </div>
       ) : (
         <div className="favorite">
-          <h3 className="favorite__titles heading-tertiary u-margin-bottom-medium">
+          <h3 className="favorite__titles heading-tertiary u-margin-bottom-medium ">
             <span>Recipe</span>
-            <span>Calories</span>
-            <span>Diet Labels</span>
           </h3>
 
           <div className="favorite__items paragraph">
@@ -42,7 +40,7 @@ const RecipeFavorite = () => {
               return (
                 <ul
                   key={fav.uri}
-                  className="favorite__item u-margin-bottom-small u-border-top"
+                  className="favorite__item u-margin-bottom-small u-border-bottom"
                 >
                   <Link
                     to={`/recipe/${recipeMealSplit(
@@ -53,26 +51,36 @@ const RecipeFavorite = () => {
                       <div className="favorite__item--label--image">
                         <img src={fav.image} alt={fav.label} width="200px" />
                       </div>
-                      <div className="favorite__item--label--span ">
-                        <span>{fav.label}</span>
-                      </div>
                     </li>
                   </Link>
+
+                  <li className="favorite__item--span">
+                    <div className="favorite__item--label--span ">
+                      <span>{fav.label}</span>
+                    </div>
+                  </li>
+
                   <li className="favorite__item--calories">
                     <MaterialIcon.DirectionsRunIcon fontSize="large" />
                     <span>{`${prettyPrintNum(fav.calories)}`}</span>
                   </li>
-                  <li>
+                  <li className="favorite__item--dietLabel">
                     {fav.dietLabels.map((dietLabel, index) => {
                       return <span key={index}>{dietLabel}</span>;
                     })}
                   </li>
+
                   <li className="remove">
                     <MaterialIcon.DeleteIcon
                       style={{ fontSize: 30 }}
                       className="remove-icon"
                       onClick={() => handleRemoveFromFav(fav)}
                     />
+                  </li>
+                  <li className="remove-mobile">
+                    <button onClick={() => handleRemoveFromFav(fav)}>
+                      remove
+                    </button>
                   </li>
                 </ul>
               );
