@@ -7,6 +7,7 @@ import SkeletonList from "components/skeletons/SkeletonList";
 
 function RecipeListing({ pageNumber, setPageNumber }) {
   const [currentPage, setCurrentPage] = useState(0);
+
   const recipeData = useSelector(getRecipe);
   const loading = useSelector(getLoading);
 
@@ -14,29 +15,27 @@ function RecipeListing({ pageNumber, setPageNumber }) {
     return <RecipeCard key={recipe.uri} recipe={recipe} />;
   });
 
-  const scrollTop = () =>{
-    window.scrollTo(0,0);
-  }
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   const PrePageRender = (e) => {
     e.preventDefault();
     setPageNumber(pageNumber - 10);
     setCurrentPage(currentPage - 1);
-    scrollTop()
+    scrollTop();
   };
 
   const nextPageRender = (e) => {
     e.preventDefault();
     setPageNumber(pageNumber + 10);
     setCurrentPage(currentPage + 1);
-    scrollTop()
+    scrollTop();
   };
 
   const skeletonRender = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
     return <SkeletonList key={i} />;
   });
-
-  console.log(recipeData);
 
   return (
     <div className="recipeList">

@@ -41,19 +41,24 @@ function Home() {
                     <Link to={`/recipe/${type.title.toLowerCase()}`}>
                       <div className="card">
                         <div className="card__side card__side--front">
-                          {" "}
                           <div className="card__side--front--img">
-                            <img src={type.image} />
+                            <img alt="recipe_img" src={type.image} />
                           </div>
                           <h2 className="card__side--front--heading">
                             {type.title}
                           </h2>
                         </div>
-                        <div className="card__side card__side--back card__side--back-1">
-                          <h3 className="card__side--back--heading">
-                            {type.body}
-                            <span>{type.author}</span>
-                          </h3>
+                        <div className="card__side card__side--back">
+                          <div className="card__detail">
+                            <div className="card__textbox">
+                              <p className="card__textbox-heading">
+                                {type.body}
+                              </p>
+                              <p className="card__textbox-author">
+                                {type.author}
+                              </p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </Link>

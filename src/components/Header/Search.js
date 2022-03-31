@@ -47,28 +47,31 @@ export default Search;
 */
 
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { fetchRecipe, getRecipe } from "features/appSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { recipeIdSplit } from "common/util";
-import useFetch from "hooks/useFetch";
+import { useNavigate } from "react-router-dom";
+import { getRecipe } from "features/appSlice";
+import { useSelector } from "react-redux";
 
 const Search = () => {
   const [term, setTerm] = useState("");
-  const dispatch = useDispatch();
   const recipeData = useSelector(getRecipe);
   const navigate = useNavigate();
   const data = recipeData?.hits;
-  // useFetch(term);
+  const pattern = new RegExp("[A-Za-z]+");
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (term === "") {
-      alert("Please enter recipe");
-    }
 
-    // dispatch(fetchRecipe(term));
-    navigate(`/recipe/${term}`);
+    term === "" && alert("Please Enter Recipe");
+    if (
+      data?.length === 0 ||
+      data?.length === undefined ||
+      !pattern.test(term)
+    ) {
+      navigate("/page-not-found");
+    }
+    if (data?.length !== 0 && term !== "" && pattern.test(term)) {
+      navigate(`/recipe/${term}`);
+    }
     setTerm("");
   };
 
@@ -82,15 +85,6 @@ const Search = () => {
           placeholder="search..."
         />
       </form>
-
-      {/* {term &&
-        recipeData?.hits?.slice(0, 5).map((data) => {
-          return (
-            <Link to={`recipe/recipeId/${recipeIdSplit(data.recipe.uri)}`}>
-              {data.recipe.label}
-            </Link>
-          );
-        })} */}
     </>
   );
 };

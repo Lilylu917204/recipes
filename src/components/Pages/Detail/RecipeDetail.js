@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
@@ -10,14 +10,14 @@ import {
 import { MaterialCard } from "common/materialUI";
 import { prettyPrintNum } from "common/util";
 import SkeletonDetail from "components/skeletons/SkeletonDetail";
+import Slider from "react-slick";
+import { Settings } from "common/slickSetting";
 
 function RecipeDetail() {
   let { recipeId } = useParams();
   const loading = useSelector(getLoading);
   const selectRecipe = useSelector(selectRecipeDetail);
   const dispatch = useDispatch();
-
-
 
   useEffect(() => {
     dispatch(fetchRecipeDetail(recipeId));
@@ -27,17 +27,16 @@ function RecipeDetail() {
     };
   }, [dispatch, recipeId]);
 
-  
-
   return (
     <div>
       {loading ? (
         <SkeletonDetail />
       ) : (
-        selectRecipe && selectRecipe.map((recipe) => {
+        selectRecipe?.length > 0 &&
+        selectRecipe.map((recipe) => {
           return (
             <div key={recipe.label} className="recipeDetail">
-              <MaterialCard.Card className="recipeDetail__left">
+              <MaterialCard.Card className="recipeDetail__top">
                 <MaterialCard.CardContent>
                   <div className="info">
                     <div className="info__top u-margin-bottom-medium u-center-text">
@@ -54,12 +53,13 @@ function RecipeDetail() {
                           <span>
                             calories:{prettyPrintNum(recipe.calories)}
                           </span>
-                          <span>diet labels : {recipe.dietLabels}</span>
+                          <span>diet labels :{recipe.dietLables}</span>
                         </h3>
                         <a
                           className="btn-text"
                           href={recipe.url}
                           target="_blank"
+                          rel="noreferrer"
                         >
                           Source
                         </a>
@@ -68,7 +68,7 @@ function RecipeDetail() {
                   </div>
                 </MaterialCard.CardContent>
               </MaterialCard.Card>
-              <MaterialCard.Card className="recipeDetail__right">
+              <MaterialCard.Card className="recipeDetail__bottom">
                 <MaterialCard.CardContent>
                   <div className="ingredient">
                     <div className=" ingredient__heading u-center-text u-margin-bottom-medium u-border-bottom">
@@ -76,18 +76,23 @@ function RecipeDetail() {
                     </div>
 
                     <div className="ingredient__details">
-                      {recipe.ingredients.map((ing) => {
-                        return (
-                          <div className="ingredient__detail u-center-text">
-                            <h4 className="paragraph ingredient__detail--span  u-margin-bottom-small">
-                              {ing.text}
-                            </h4>
-                            <div className="ingredient__detail--image">
-                              <img src={ing.image} alt={ing.food} />
+                      <Slider {...Settings}>
+                        {recipe.ingredients.map((ing) => {
+                          return (
+                            <div
+                              key={ing.foodId}
+                              className="ingredient__detail u-center-text"
+                            >
+                              <h4 className="paragraph ingredient__detail--span  u-margin-bottom-small">
+                                {ing.text}
+                              </h4>
+                              <div className="ingredient__detail--image ">
+                                <img src={ing.image} alt={ing.food} />
+                              </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
+                      </Slider>
                     </div>
                   </div>
                 </MaterialCard.CardContent>

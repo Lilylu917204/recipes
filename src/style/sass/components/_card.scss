@@ -4,10 +4,7 @@
   position: relative;
   height: 30rem;
   width: 35rem;
-  overflow: hidden;
   margin: 4rem;
-  border-radius: 10px;
-  overflow: hidden;
 
   &__side {
     height: 30rem;
@@ -17,17 +14,21 @@
     left: 0;
     width: 100%;
     backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba(#111, 0.15);
 
     &--front {
-      background-color: $color-gray-light;
-
       &--img {
+        background-size: cover;
+
         img {
-          width: 100%;
-          height: 100%;
           opacity: 65%;
+          width: 100%;
+          height: auto;
           background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
         }
       }
       &--heading {
@@ -45,30 +46,34 @@
 
     &--back {
       transform: rotateY(180deg);
+      background-color: $color-primary;
+    }
+  }
 
-      &--heading {
-        width: 90%;
-        padding: 1rem;
-        line-height: 3rem;
-        font-size: 2rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: left;
-        color: $color-gray-dark-2;
+  &__detail {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 
-        span {
-          display: block;
-          position: absolute;
-          right: 3rem;
-          margin-top: 3rem;
-        }
-      }
+  &__textbox {
+    text-align: left;
+    padding: 1rem;
+    color: $color-gray-dark-2;
 
-      &-1 {
-        background-color: $color-primary;
-      }
+    &-heading {
+      font-size: 2rem;
+      line-height: 3.5rem;
+    }
+    &-author {
+      font-size: 1.8rem;
+      display: block;
+      position: absolute;
+      right: 3rem;
+      margin-top: 3rem;
     }
   }
 
@@ -80,11 +85,11 @@
     transform: rotateY(0deg);
   }
 
-  //@include respond(tab-port)
+  //@include respond(tab-port) {
   @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
-    background-color: $color-gray-light;
+    background-color: $color-primary;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
     &__side {
@@ -92,9 +97,17 @@
       position: relative;
       box-shadow: none;
 
+      &--front {
+        &--img {
+          -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 97%);
+          clip-path: polygon(0 0, 100% 0, 100% 85%, 0 97%);
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+        }
+      }
+
       &--back {
         transform: rotateY(0);
-        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
       }
     }
 
@@ -102,10 +115,28 @@
       transform: rotateY(0);
     }
 
-    &__details {
-      padding: 1rem 3rem;
+    // FRONT SIDE STYLING
+    &__detail {
+      position: relative;
+      top: 0%;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 3rem 4rem 4rem 4rem;
     }
 
-    // FRONT SIDE STYLING
+    &__textbox {
+      margin-bottom: 3rem;
+      text-align: center;
+
+      &-heading {
+        font-size: 2.4rem;
+        text-align: left;
+      }
+
+      &-author {
+        font-size: 2.2rem;
+      }
+    }
   }
 }
