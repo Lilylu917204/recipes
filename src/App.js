@@ -35,13 +35,12 @@ function App() {
               element={<RecipeDetail />}
             />
             <Route path="/recipe/:mealType" element={<MealType />} />
-            {/* <Route path="/recipe/:page" element={<RecipeListing />} /> */}
             <Route path="/page-not-found" element={<PageNotFound />} />
             <Route path="/recipe" exact element={<Home />} />
-            {/* <Route
+            <Route
               path="*"
               element={<Navigate replace to="/page-not-found" />}
-            /> */}
+            />
           </Routes>
         </div>
         <Footer />

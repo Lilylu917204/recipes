@@ -8,6 +8,10 @@
   margin-top: -20vh;
   background-color: $color-white;
 
+  @include respond(tab-port) {
+    padding: 20rem 0;
+  }
+
   &__title {
     padding: 1rem;
     width: 90%;
@@ -56,7 +60,6 @@
   }
 }
 
-
 .recipeFav {
   padding: 5rem;
   margin: 10rem 0rem;
@@ -70,5 +73,3 @@
     align-items: center;
   }
 }
-
-

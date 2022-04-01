@@ -16,6 +16,7 @@ const ExpandMore = MaterialStyled.styled((props) => {
 })(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
   marginLeft: "auto",
+
   transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
   }),
@@ -89,7 +90,7 @@ function RecipeCard({ recipe }) {
             </div>
             {recipe.ingredients.map((ing) => {
               return (
-                <div key={ing.uri} className="paragraph">
+                <div key={ing.image} className="paragraph">
                   {ing.text}
                 </div>
               );

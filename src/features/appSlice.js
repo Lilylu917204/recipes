@@ -50,14 +50,12 @@ const recipeSlice = createSlice({
   },
   extraReducers: {
     [fetchRecipe.pending]: () => {
-      console.log("pending");
       return { loading: true };
     },
     [fetchRecipe.rejected]: () => {
       console.log("Rejected");
     },
     [fetchRecipe.fulfilled]: (state, action) => {
-      console.log("success");
       return { ...state, recipe: action.payload, loading: false };
     },
     [fetchRecipeDetail.pending]: () => {

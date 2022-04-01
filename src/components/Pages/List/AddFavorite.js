@@ -1,26 +1,48 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { MaterialIcon } from "common/materialUI";
-import { addItemToFavorite } from "features/favoriteSlice";
+import {
+  addItemToFavorite,
+  removeFromFavorite,
+  getFavoriteItems,
+} from "features/favoriteSlice";
 
 const AddFavorites = ({ recipe }) => {
-  const [addFavorites, setAddFavorites] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const favoriteList = useSelector(getFavoriteItems);
+
+  useEffect(() => {
+    if (favoriteList.map((fav) => fav.uri).includes(recipe.uri)) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [isFavorite, favoriteList, recipe.uri]);
+
   const dispatch = useDispatch();
 
   const handleAddToFavorite = (recipe) => {
-    setAddFavorites(!addFavorites);
+    setIsFavorite(true);
     dispatch(addItemToFavorite(recipe));
+  };
+
+  const removeFavorite = (recipe) => {
+    setIsFavorite(false);
+    dispatch(removeFromFavorite(recipe));
   };
 
   return (
     <>
       <MaterialIcon.IconButton
-        onClick={() => handleAddToFavorite(recipe)}
         aria-label="add to favorites"
+        onClick={() => {
+          isFavorite ? removeFavorite(recipe) : handleAddToFavorite(recipe);
+        }}
       >
         <MaterialIcon.FavoriteIcon
-          className={addFavorites ? "addFavorites--red" : ""}
           className="recipeCard-icon"
+          sx={{ color: `${isFavorite ? "red" : ""}` }}
         />
       </MaterialIcon.IconButton>
     </>

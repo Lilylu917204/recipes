@@ -1,150 +1,162 @@
 .recipeDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  margin: 4rem auto;
+  align-items: center;
+  padding: 3rem;
+
+  &__top {
+    width: 85%;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+  }
+
+  &__bottom {
+    margin-top: 5rem;
+    width: 85%;
+    overflow: hidden;
+  }
+}
+
+.info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__top {
+    padding: 1rem;
+    width: 90%;
+
+    h2 {
+      padding: 1rem;
+    }
+  }
+
+  &__bottom {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
     padding: 2rem;
-    margin: 3rem auto;
-    padding: 3rem;
-  
-    &__left {
-      flex: 2;
-      margin-right: 5rem;
-      margin-top: 5rem;
-    }
-  
-    &__right {
+    width: 90%;
+
+    &--image {
       flex: 1;
-      margin-top: 5rem;
-      height: 550px;
-      overflow: hidden;
-  
-      &:hover {
-        overflow-y: scroll;
+      margin-right: 2rem;
+      margin: 0 auto;
+
+      @include respond(phone) {
+        margin-bottom: 3rem;
+      }
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &--span {
+      flex: 1.5;
+      text-align: center;
+      line-height: 5rem;
+
+      span {
+        display: block;
+        padding: 1rem;
       }
     }
   }
-  
-  .info {
-    padding: 1rem;
+  &__dietLabel {
+    color: $color-gray-dark-3;
+  }
+}
+
+.ingredient {
+  padding: 1rem;
+
+  &__heading {
+    span {
+      padding: 1rem;
+      display: inline-block;
+      width: 90%;
+    }
+  }
+  &__details {
+    padding: 2rem;
+  }
+
+  &__detail {
+    height: 50vh;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-  
-    &__top {
-      padding: 1rem;
-      width: 90%;
-  
-      h2 {
-        padding:1rem;
-      }
-    }
-  
-    &__bottom {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem;
-      width: 90%;
-  
-      &--image {
-        margin-right: 2rem;
-        margin: 0 auto;
-  
-        img {
-          width: 100%;
-          object-fit: contain;
-        }
-      }
-  
-      &--span {
-        text-align: center;
-        line-height: 5rem;
-  
-        span {
-          display: inline-block;
-          padding: 1rem;
-        }
-      }
-    }
-  }
-  
-  .ingredient {
-    padding: 1rem;
-  
-    &__heading {
-      span {
-        padding: 1rem;
-        display: inline-block;
-        width: 90%;
-      }
-    }
-  
-    &__details {
-      padding: 2rem;
-    }
-  }
-  
-  .ingredient__detail {
-    padding: 2rem;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-  
-    &:not(:last-child) {
-      margin-bottom: 2rem;
-    }
-  
+
     &--span {
       margin-right: 1rem;
+      height: 10vh;
     }
-  
+
     &--image {
+      height: 30vh;
       padding: 1rem;
-  
+
       img {
+        margin: 2rem auto;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
         border-radius: 50%;
         width: 150px;
         object-fit: contain;
       }
     }
   }
-  
-  @media (max-width: 990px) {
-    .recipeDetail {
-      display: block;
-      flex-direction: column;
-      align-items: center;
-  
-      &__left {
-        margin-left: auto;
-        margin-right: auto;
-      }
-  
-      &__right {
-        margin-left: auto;
-        margin-right: auto;
-      }
+}
+
+@include respond(phone) {
+  .recipeDetail {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+
+    &__top {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
     }
-  
-    .info {
-      flex-direction: column;
-      align-items: center;
 
-  
-      &__bottom {
-        flex-direction: column;
-        align-items: center;
-
-      }
-    }
-  
-    .ingredient__detail {
-      flex-direction: column;
-      align-items: center;
-
-      
-
+    &__bottom {
+      margin-left: auto;
+      margin-right: auto;
+      height: 100%;
+      width: 100%;
     }
   }
-  
+
+  .info {
+    flex-direction: column;
+    align-items: center;
+
+    &__bottom {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .ingredient {
+    &__details {
+      display: flex;
+      flex-direction: column;
+    }
+    &__detail {
+      height: 40vh;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

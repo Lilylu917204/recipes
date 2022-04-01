@@ -3,8 +3,8 @@ import { MaterialIcon } from "./materialUI";
 const mealTypeData = [
   {
     title: "Breakfast",
-    body: "Breakfast is everything. The beginning, the first thing. It is the mouthful that is the commitment to a new day, a continuing life.",
-    author: "- A. A. Gill",
+    body: "There's nothing like starting the day with a healthy, filling breakfast smoothie.",
+    author: "- Hannah Bronfman",
     image:
       "https://www.edamam.com/web-img/400/40091358a014e102ac7ec5bbd7366bab.jpg",
   },
