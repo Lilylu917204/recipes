@@ -16,7 +16,7 @@ const RecipeFavorite = () => {
   return (
     <div className="recipeFav">
       <div className="u-center-text u-margin-bottom-big">
-        <h2 className="heading-secondary">My Saved Recipes</h2>
+        <h2 className="heading-secondary">My Favorite Recipes</h2>
       </div>
       {favorite.length === 0 ? (
         <div className="recipeFav__empty">

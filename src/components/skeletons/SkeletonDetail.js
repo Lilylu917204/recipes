@@ -6,7 +6,7 @@ import { MaterialCard } from "common/materialUI";
 const SkeletonList = () => {
   return (
     <div className="recipeDetail">
-      <MaterialCard.Card className="recipeDetail__left">
+      <MaterialCard.Card className="recipeDetail__top">
         <MaterialCard.CardContent className="info">
           <SkeletonElement type="title2" />
           <SkeletonElement type="title2" />
@@ -23,7 +23,7 @@ const SkeletonList = () => {
         </MaterialCard.CardContent>
       </MaterialCard.Card>
 
-      <MaterialCard.Card className="recipeDetail__right">
+      <MaterialCard.Card className="recipeDetail__bottom">
         <MaterialCard.CardContent>
           <SkeletonElement type="title2" />
           <div className="skeleton-ingredient">

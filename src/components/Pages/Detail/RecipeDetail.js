@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
@@ -11,7 +11,12 @@ import { MaterialCard } from "common/materialUI";
 import { prettyPrintNum } from "common/util";
 import SkeletonDetail from "components/skeletons/SkeletonDetail";
 import Slider from "react-slick";
-import { Settings } from "common/slickSetting";
+import { sliderSettings } from "common/slickSetting";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { aosSettings } from "common/aosSetting";
+
+AOS.init(aosSettings);
 
 function RecipeDetail() {
   let { recipeId } = useParams();
@@ -53,7 +58,16 @@ function RecipeDetail() {
                           <span>
                             calories:{prettyPrintNum(recipe.calories)}
                           </span>
-                          <span>diet labels :{recipe.dietLables}</span>
+                          <span>
+                            diet labels :
+                            {recipe.dietLabels.map((dietLabel, index) => {
+                              return (
+                                <span className="info__dietLabel" key={index}>
+                                  {dietLabel}
+                                </span>
+                              );
+                            })}
+                          </span>
                         </h3>
                         <a
                           className="btn-text"
@@ -68,7 +82,10 @@ function RecipeDetail() {
                   </div>
                 </MaterialCard.CardContent>
               </MaterialCard.Card>
-              <MaterialCard.Card className="recipeDetail__bottom">
+              <MaterialCard.Card
+                className="recipeDetail__bottom"
+                data-aos="fade-up"
+              >
                 <MaterialCard.CardContent>
                   <div className="ingredient">
                     <div className=" ingredient__heading u-center-text u-margin-bottom-medium u-border-bottom">
@@ -76,7 +93,7 @@ function RecipeDetail() {
                     </div>
 
                     <div className="ingredient__details">
-                      <Slider {...Settings}>
+                      <Slider {...sliderSettings}>
                         {recipe.ingredients.map((ing) => {
                           return (
                             <div

@@ -5,6 +5,7 @@
   height: 30rem;
   width: 35rem;
   margin: 4rem;
+  cursor: pointer;
 
   &__side {
     height: 30rem;
@@ -67,6 +68,9 @@
     &-heading {
       font-size: 2rem;
       line-height: 3.5rem;
+      @include respond(phone) {
+        line-height: 5rem;
+      }
     }
     &-author {
       font-size: 1.8rem;
@@ -85,7 +89,6 @@
     transform: rotateY(0deg);
   }
 
-  //@include respond(tab-port) {
   @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
@@ -130,7 +133,7 @@
       text-align: center;
 
       &-heading {
-        font-size: 2.4rem;
+        font-size: 2.5rem;
         text-align: left;
       }
 

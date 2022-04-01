@@ -44,6 +44,7 @@
     width: 90%;
 
     &--image {
+      flex: 1;
       margin-right: 2rem;
       margin: 0 auto;
 
@@ -58,14 +59,18 @@
     }
 
     &--span {
+      flex: 1.5;
       text-align: center;
       line-height: 5rem;
 
       span {
-        display: inline-block;
+        display: block;
         padding: 1rem;
       }
     }
+  }
+  &__dietLabel {
+    color: $color-gray-dark-3;
   }
 }
 
@@ -144,9 +149,8 @@
 
   .ingredient {
     &__details {
-      flex-direction: column;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
     }
     &__detail {
       height: 40vh;
