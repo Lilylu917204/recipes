@@ -25,10 +25,10 @@ yarn-error.log*
 # Api key
 src/common/api/recipeApiKey.js
 
-# image
+# images
 
-src/common/images/detail.png
-src/common/images/favorite.png
-src/common/images/list.png
-src/common/images/homepage.png
-src/common/images/header.jpg
+src/images/detail.png
+src/images/favorite.png
+src/images/header.png
+src/images/homepage.png
+src/images/list.png
