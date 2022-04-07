@@ -8,7 +8,6 @@ import Collapse from "@mui/material/Collapse";
 
 /* Icon */
 import IconButton from "@mui/material/IconButton";
-import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -41,7 +40,6 @@ export const MaterialCard = {
 
 export const MaterialIcon = {
   IconButton,
-  ShareIcon,
   ExpandMoreIcon,
   DirectionsRunIcon,
   FavoriteIcon,

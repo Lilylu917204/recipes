@@ -71,9 +71,6 @@ function RecipeCard({ recipe }) {
 
         <MaterialCard.CardActions disableSpacing>
           <AddFavorites recipe={recipe} />
-          <MaterialIcon.IconButton aria-label="share">
-            <MaterialIcon.ShareIcon className="recipeCard-icon" />
-          </MaterialIcon.IconButton>
           <ExpandMore
             expand={expanded}
             onClick={handleExpand}

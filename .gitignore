@@ -25,6 +25,7 @@ yarn-error.log*
 # Api key
 src/common/api/recipeApiKey.js
 
-# firebaseConfig
+# image
 
-src/common/firebase/firebaseConfig.js
+src/common/images/**
+
