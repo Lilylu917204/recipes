@@ -1,7 +1,5 @@
 ## About the project
 
----
-
 ![homepage](/src/images/homepage.png)
 
 #### This is a Recipe app.
@@ -33,21 +31,15 @@
 
 ## API
 
----
-
 - [Edamam](https://www.edamam.com/ "Edamam")
 
 ## API Notice
-
----
 
 - API calls limits **10,000 month**
 - Results per call **up to 100 results**
 - Throttling calls/min **10/minute**
 
 ## Usage
-
----
 
 <h3 align="center">Search recipes </h3>
 
@@ -62,8 +54,6 @@
 ![detail](src/images/detail.png)
 
 ## Available Scripts
-
----
 
 In the project directory, you can run:
 
