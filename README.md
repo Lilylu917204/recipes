@@ -13,9 +13,9 @@
   - dinner
   - snack
   - teatime
-- Search multiple recipes.
+- Search for multiple recipes.
 - Saved the recipes you love in the list.
-- Get recipe's details and ingredients.
+- Get recipe details and ingredients.
 
 ### Buit with
 
