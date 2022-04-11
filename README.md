@@ -1,6 +1,7 @@
 ## About the project
 
-![homepage](/src/images/homepage.png)
+<img width="1433" alt="homepage" src="https://user-images.githubusercontent.com/69516416/162664623-9ded03e6-e505-49c1-830b-6b847a9544c3.png">
+
 
 #### This is a Recipe app.
 
@@ -43,15 +44,21 @@
 
 <h3 align="center">Search recipes </h3>
 
-![search](src/images/list.png)
+<img width="1424" alt="list" src="https://user-images.githubusercontent.com/69516416/162664673-ab63c8e8-456f-41fc-b49e-4ee9c7ada07e.png">
+.png)
+
 
 <h3 align="center">Add favorites</h3>
 
-![favorite](src/images/favorite.png)
+
+<img width="1430" alt="favorite" src="https://user-images.githubusercontent.com/69516416/162664699-5c82dfb1-d6cd-4cda-bbe6-37b361df3486.png">
+
 
 <h3 align="center">Get recipe details</h3>
 
-![detail](src/images/detail.png)
+
+<img width="1416" alt="detail" src="https://user-images.githubusercontent.com/69516416/162664708-57a14ba2-7d6a-4419-ae34-77888f5e4490.png">
+
 
 ## Available Scripts
 
