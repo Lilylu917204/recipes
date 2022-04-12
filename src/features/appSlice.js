@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import recipeApi from "common/api/recipeApi";
-import { recipeDetailApi } from "common/api/recipeApi";
 
 export const fetchRecipe = createAsyncThunk(
   "recipes/fetchMealType",
@@ -10,23 +9,10 @@ export const fetchRecipe = createAsyncThunk(
   }
 );
 
-// export const fetchRecipe = createAsyncThunk(
-//   "recipes/fetchRecipe",
-//   async (parameter = ["Breakfast", "chicken"]) => {
-//     console.log(parameter);
-//     const { data } = await recipeApi.get(
-//       `?mealType=${parameter[0]}&q=${parameter[1]}`
-//     );
-//     return data;
-//   }
-// );
-
 export const fetchRecipeDetail = createAsyncThunk(
   "recipes/fetchRecipeDetail",
   async (recipeId) => {
-    const { data } = await recipeDetailApi.get(
-      `/search?app_id=b4c650bb&app_key=becf87251f5d2ddfc322260756949473&r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}`
-    );
+    const { data } = await recipeApi.get("/search", recipeId);
     return data;
   }
 );

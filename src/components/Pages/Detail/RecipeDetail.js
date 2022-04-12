@@ -24,9 +24,20 @@ function RecipeDetail() {
   const selectRecipe = useSelector(selectRecipeDetail);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchRecipeDetail(recipeId));
+  const url = decodeURIComponent(
+    decodeURIComponent(
+      "http%253A%252F%252Fwww.edamam.com%252Fontologies%252Fedamam.owl%2523recipe"
+    )
+  );
 
+  useEffect(() => {
+    dispatch(
+      fetchRecipeDetail({
+        params: {
+          r: url + `_${recipeId}`,
+        },
+      })
+    );
     return () => {
       dispatch(removeRecipeDetail());
     };

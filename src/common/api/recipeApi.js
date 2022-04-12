@@ -8,9 +8,3 @@ export default axios.create({
     app_key: KEY,
   },
 });
-
-const recipeDetailApi = axios.create({
-  baseURL: "https://api.edamam.com",
-});
-
-export { recipeDetailApi };
